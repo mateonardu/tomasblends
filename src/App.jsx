@@ -6,7 +6,7 @@ import Hero from './components/Hero'
 import Promo from './components/Promo'
 import Servicios from './components/Servicios'
 import Turnos from './components/turnos/Turnos'
-import Galeria from './components/Galeria'
+import Reels from './components/Reels'
 import Testimonios from './components/Testimonios'
 import Ubicacion from './components/Ubicacion'
 import Footer from './components/Footer'
@@ -20,8 +20,8 @@ const secciones = [
   { id: 'hero', Componente: Hero, visible: true },
   { id: 'promo', Componente: Promo, visible: siteConfig.secciones.promo && siteConfig.promo.activa },
   { id: 'servicios', Componente: Servicios, visible: true },
+  { id: 'reels', Componente: Reels, visible: siteConfig.secciones.reels },
   { id: 'turnos', Componente: Turnos, visible: true },
-  { id: 'galeria', Componente: Galeria, visible: siteConfig.secciones.galeria },
   { id: 'testimonios', Componente: Testimonios, visible: siteConfig.secciones.testimonios },
   { id: 'ubicacion', Componente: Ubicacion, visible: true },
 ]

@@ -29,10 +29,10 @@ export default function Confirmacion({ servicio, fecha, hora, datos, onReiniciar
         ✓
       </div>
 
-      <h3 className="mt-4 font-heading text-2xl font-bold">
+      <h3 className="mt-4 font-heading text-2xl font-bold text-secondary">
         ¡Listo, {nombre}!
       </h3>
-      <p className="mt-1 text-sm opacity-80">
+      <p className="mt-1 text-sm text-secondary/80">
         Confirmá por WhatsApp para asegurar tu turno.
       </p>
 
@@ -44,14 +44,14 @@ export default function Confirmacion({ servicio, fecha, hora, datos, onReiniciar
         href={urlWhatsApp}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-5 block w-full rounded-full bg-primary px-6 py-3 font-semibold text-white transition-opacity hover:opacity-90"
+        className="mt-5 block w-full rounded-full bg-primary px-6 py-3 font-semibold text-white transition-all hover:-translate-y-0.5 hover:opacity-90"
       >
         Confirmar por WhatsApp
       </a>
       <button
         type="button"
         onClick={onReiniciar}
-        className="mt-3 text-sm underline opacity-70 transition-opacity hover:opacity-100"
+        className="mt-3 text-sm text-secondary underline opacity-70 transition-opacity hover:opacity-100"
       >
         Hacer otra reserva
       </button>

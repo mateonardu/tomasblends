@@ -15,6 +15,7 @@ export default function ThemeProvider({ children }) {
     root.style.setProperty('--color-primario', colores.primario)
     root.style.setProperty('--color-primario-hover', colores.primarioHover)
     root.style.setProperty('--color-secundario', colores.secundario)
+    root.style.setProperty('--color-superficie', colores.superficie)
     root.style.setProperty('--color-fondo', colores.fondo)
     root.style.setProperty('--color-texto', colores.texto)
     root.style.setProperty('--color-acento', colores.acento)

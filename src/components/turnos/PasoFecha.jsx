@@ -26,23 +26,23 @@ export default function PasoFecha({ fecha, onElegirFecha }) {
           onClick={() => setOffsetMes(offsetMes - 1)}
           disabled={offsetMes === 0}
           aria-label="Mes anterior"
-          className="h-11 w-11 rounded-full text-xl enabled:hover:bg-secondary disabled:opacity-30"
+          className="h-11 w-11 rounded-full text-xl text-secondary enabled:hover:bg-secondary enabled:hover:text-foreground disabled:opacity-30"
         >
           ‹
         </button>
-        <p className="font-semibold capitalize">{nombreMes}</p>
+        <p className="font-semibold text-secondary capitalize">{nombreMes}</p>
         <button
           type="button"
           onClick={() => setOffsetMes(offsetMes + 1)}
           disabled={offsetMes >= MAX_MESES_ADELANTE}
           aria-label="Mes siguiente"
-          className="h-11 w-11 rounded-full text-xl enabled:hover:bg-secondary disabled:opacity-30"
+          className="h-11 w-11 rounded-full text-xl text-secondary enabled:hover:bg-secondary enabled:hover:text-foreground disabled:opacity-30"
         >
           ›
         </button>
       </div>
 
-      <div className="mt-3 grid grid-cols-7 gap-1 text-center text-xs font-medium opacity-60">
+      <div className="mt-3 grid grid-cols-7 gap-1 text-center text-xs font-medium text-secondary/60">
         {DIAS_CORTOS.map((dia) => (
           <span key={dia}>{dia}</span>
         ))}
@@ -69,8 +69,10 @@ export default function PasoFecha({ fecha, onElegirFecha }) {
               className={`aspect-square rounded-full text-sm transition-colors disabled:opacity-30 ${
                 elegida
                   ? 'bg-primary font-semibold text-white'
-                  : 'enabled:hover:bg-secondary'
-              } ${esHoy && !elegida ? 'font-bold text-accent underline underline-offset-4' : ''}`}
+                  : esHoy
+                    ? 'font-bold text-accent underline underline-offset-4 enabled:hover:bg-secondary'
+                    : 'text-secondary enabled:hover:bg-secondary enabled:hover:text-foreground'
+              }`}
             >
               {i + 1}
             </button>

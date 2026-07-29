@@ -22,7 +22,7 @@ export default function PasoHorario({ servicio, fecha, hora, onElegirHora, aviso
 
   return (
     <div>
-      <p className="text-sm capitalize opacity-70">
+      <p className="text-sm text-secondary/70 capitalize">
         {formatFecha(fecha)} · {servicio.nombre}
       </p>
 
@@ -44,7 +44,7 @@ export default function PasoHorario({ servicio, fecha, hora, onElegirHora, aviso
           </button>
         </div>
       ) : !respuesta ? (
-        <p role="status" className="mt-6 text-center text-sm opacity-70">
+        <p role="status" className="mt-6 text-center text-sm text-secondary/70">
           Cargando horarios...
         </p>
       ) : !respuesta.disponible ? (
@@ -71,7 +71,7 @@ export default function PasoHorario({ servicio, fecha, hora, onElegirHora, aviso
                   className={`w-full rounded-xl border-2 py-3 text-sm font-medium transition-colors disabled:line-through disabled:opacity-40 ${
                     esElegido
                       ? 'border-primary bg-primary text-white'
-                      : 'border-secondary enabled:hover:border-primary/40'
+                      : 'border-secondary text-secondary enabled:hover:border-primary/40'
                   }`}
                 >
                   {slot.hora}

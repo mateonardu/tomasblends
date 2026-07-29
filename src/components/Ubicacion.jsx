@@ -1,6 +1,7 @@
 import { siteConfig } from '../config/site.config'
 import { estadoLocal } from '../utils/horarios'
 import { horarioDelDia } from '../utils/slots'
+import { useReveal } from '../hooks/useReveal'
 
 const ETIQUETAS_REDES = { instagram: 'Instagram', tiktok: 'TikTok' }
 
@@ -32,11 +33,15 @@ export default function Ubicacion() {
   const { horarios, ubicacion, redes } = siteConfig
   const diaActual = horarioDelDia(new Date())?.dia
   const redesActivas = Object.entries(redes).filter(([, url]) => url)
+  const [headerRef, headerVisible] = useReveal()
 
   return (
     <section id="ubicacion" className="bg-secondary px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-10 text-center">
+        <header
+          ref={headerRef}
+          className={`reveal mb-10 text-center ${headerVisible ? 'reveal-visible' : ''}`}
+        >
           <h2 className="font-heading text-3xl font-bold md:text-4xl">
             {titulo}
           </h2>
@@ -51,7 +56,7 @@ export default function Ubicacion() {
                 <li
                   key={h.dia}
                   className={`flex justify-between rounded-lg px-3 py-2 text-sm ${
-                    h.dia === diaActual ? 'bg-white font-semibold' : ''
+                    h.dia === diaActual ? 'bg-surface font-semibold text-secondary' : ''
                   }`}
                 >
                   <span>{h.dia}</span>

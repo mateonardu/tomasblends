@@ -39,7 +39,7 @@ export default function LoginAdmin() {
       <div className="flex min-h-screen items-center justify-center px-6">
         <form
           onSubmit={entrar}
-          className="w-full max-w-sm rounded-3xl bg-white p-6 shadow-md sm:p-8"
+          className="w-full max-w-sm rounded-3xl bg-surface p-6 shadow-md sm:p-8"
         >
           <h1 className="font-heading text-xl font-bold">
             {siteConfig.marca.nombre}

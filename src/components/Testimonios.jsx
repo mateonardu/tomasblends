@@ -1,4 +1,5 @@
 import { siteConfig } from '../config/site.config'
+import { useReveal } from '../hooks/useReveal'
 
 const CARD_ANCHO_ESTIMADO = 340 // 320px de tarjeta + 20px de gap
 const MEDIO_ANCHO_MINIMO = 2600 // más ancho que cualquier viewport real
@@ -7,6 +8,8 @@ const VELOCIDAD_PX_POR_SEG = 27
 export default function Testimonios() {
   const { titulo, subtitulo } = siteConfig.textos.testimonios
   const { testimonios } = siteConfig
+  const [headerRef, headerVisible] = useReveal()
+  const [trackRef, trackVisible] = useReveal()
 
   // El marquee duplica el set y anima -50% del ancho total: para que
   // nunca se vea el final del track antes de que vuelva a arrancar,
@@ -28,28 +31,36 @@ export default function Testimonios() {
 
   return (
     <section id="testimonios" className="overflow-hidden py-16">
-      <header className="mb-9 px-6 text-center">
+      <header
+        ref={headerRef}
+        className={`reveal mb-9 px-6 text-center ${headerVisible ? 'reveal-visible' : ''}`}
+      >
         <h2 className="font-heading text-3xl font-bold md:text-4xl">
           {titulo}
         </h2>
         <p className="mt-2 opacity-80">{subtitulo}</p>
       </header>
 
-      <div className="[-webkit-mask-image:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)]">
+      <div
+        ref={trackRef}
+        className={`reveal [-webkit-mask-image:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] [mask-image:linear-gradient(90deg,transparent,black_6%,black_94%,transparent)] ${
+          trackVisible ? 'reveal-visible' : ''
+        }`}
+      >
         <ul
-          className="animate-[aura-marquee_1s_linear_infinite] flex w-max gap-5 py-1.5 hover:[animation-play-state:paused]"
+          className="marquee-track animate-[aura-marquee_1s_linear_infinite] flex w-max gap-5 py-1.5 hover:[animation-play-state:paused]"
           style={{ animationDuration: `${duracionSeg}s` }}
         >
           {tarjetas.map((testimonio, i) => (
             <li
               key={`${testimonio.nombre}-${i}`}
-              className="w-[min(320px,78vw)] flex-none rounded-2xl border border-secondary bg-white p-6 shadow-[0_8px_26px_rgba(74,53,59,.06)]"
+              className="w-[min(320px,78vw)] flex-none rounded-2xl border border-secondary bg-surface p-6 shadow-[0_8px_26px_rgba(74,53,59,.06)]"
             >
               <figure className="flex h-full flex-col gap-4">
                 <span aria-hidden="true" className="text-sm tracking-[2px] text-estrellas">
                   ★★★★★
                 </span>
-                <blockquote className="flex-1 font-heading text-[16.5px] leading-relaxed italic">
+                <blockquote className="flex-1 font-heading text-[16.5px] leading-relaxed text-secondary italic">
                   “{testimonio.texto}”
                 </blockquote>
                 <figcaption className="flex items-center gap-3">
@@ -60,7 +71,7 @@ export default function Testimonios() {
                     {testimonio.nombre[0]}
                   </span>
                   <span className="flex flex-col">
-                    <span className="text-sm font-semibold">{testimonio.nombre}</span>
+                    <span className="text-sm font-semibold text-secondary">{testimonio.nombre}</span>
                     <span className="text-xs text-accent">{testimonio.servicio}</span>
                   </span>
                 </figcaption>

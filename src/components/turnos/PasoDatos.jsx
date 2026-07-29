@@ -47,7 +47,7 @@ export default function PasoDatos({
       <div className="mt-5 flex flex-col gap-4">
         {CAMPOS.map(({ clave, etiqueta, tipo, inputMode, autoComplete }) => (
           <label key={clave} className="block">
-            <span className="text-sm font-medium">{etiqueta}</span>
+            <span className="text-sm font-medium text-secondary">{etiqueta}</span>
             <input
               type={tipo}
               inputMode={inputMode}
@@ -55,7 +55,7 @@ export default function PasoDatos({
               value={datos[clave]}
               onChange={(e) => onCambiar(clave, e.target.value)}
               aria-invalid={Boolean(errores[clave])}
-              className={`mt-1 w-full rounded-xl border-2 p-3 outline-none transition-colors focus:border-primary ${
+              className={`mt-1 w-full rounded-xl border-2 p-3 text-secondary outline-none transition-colors focus:border-primary ${
                 errores[clave] ? 'border-red-400' : 'border-secondary'
               }`}
             />

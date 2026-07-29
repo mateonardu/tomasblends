@@ -5,7 +5,7 @@ import PromoBar from './PromoBar'
 export const LINKS_NAV = [
   { etiqueta: 'Servicios', ancla: '#servicios' },
   { etiqueta: 'Turnos', ancla: '#turnos' },
-  ...(siteConfig.secciones.galeria ? [{ etiqueta: 'Trabajos', ancla: '#galeria' }] : []),
+  ...(siteConfig.secciones.reels ? [{ etiqueta: 'Trabajos', ancla: '#reels' }] : []),
   { etiqueta: 'Ubicación', ancla: '#ubicacion' },
 ]
 
@@ -28,14 +28,16 @@ export default function Header() {
       <PromoBar />
 
       <div
-        className={`bg-background/90 text-foreground backdrop-blur-md transition-shadow ${
-          scrolleado ? 'border-b border-secondary shadow-sm' : 'border-b border-transparent'
+        className={`text-foreground transition-all duration-300 ${
+          scrolleado
+            ? 'border-b border-secondary bg-background/90 shadow-sm backdrop-blur-md'
+            : 'border-b border-transparent bg-transparent'
         }`}
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <a href="#inicio" onClick={cerrarMenu} className="flex items-center gap-2.5">
-            <img src={marca.logo} alt="" className="h-[34px] w-[34px]" />
-            <span className="font-heading text-lg font-semibold">{marca.nombre}</span>
+            <img src={marca.logo} alt="" className="h-12 w-12 object-contain" />
+            <span className="font-heading text-2xl font-bold">{marca.nombre}</span>
           </a>
 
           <nav aria-label="Principal" className="hidden items-center gap-7 font-ui md:flex">
@@ -50,7 +52,7 @@ export default function Header() {
             ))}
             <a
               href="#turnos"
-              className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
+              className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-md"
             >
               Reservar online
             </a>

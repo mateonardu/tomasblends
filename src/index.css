@@ -12,6 +12,7 @@
   --color-primary: var(--color-primario);
   --color-primary-hover: var(--color-primario-hover);
   --color-secondary: var(--color-secundario);
+  --color-surface: var(--color-superficie);
   --color-background: var(--color-fondo);
   --color-foreground: var(--color-texto);
   --color-accent: var(--color-acento);
@@ -51,6 +52,32 @@ html {
   }
 }
 
+/* Fade + slight slide-up al entrar en viewport (usado junto con el hook
+   useReveal). Transición corta y pareja en toda la web: la sección
+   arranca en este estado y el hook agrega `reveal-visible` cuando entra
+   al viewport. */
+@utility reveal {
+  opacity: 0;
+  translate: 0 36px;
+  /* Lista explícita (no `transition-all`) para que la misma clase sirva
+     de base a elementos que además animan hover (scale, shadow, border,
+     bg) sin que ambas declaraciones de `transition` compitan por la
+     cascada. El fade+slide de entrada va más lento (750ms) para que se
+     note durante el scroll normal; scale/shadow/border/bg quedan más
+     cortos (300ms) porque son feedback de hover, no de entrada. */
+  transition:
+    opacity 750ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    translate 750ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    scale 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    box-shadow 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    border-color 300ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background-color 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+@utility reveal-visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
 /* Marquee infinito de Testimonios: el track dibuja el set de tarjetas
    dos veces y recorre exactamente el ancho de un set, así el loop no
    se nota. */
@@ -72,16 +99,8 @@ body {
   @apply bg-background text-foreground font-body;
 }
 
-/* Vollkorn solo en h1/h2/h3 rectos: la cursiva existente (em/.italic) dentro de
-   un heading conserva la tipografía original (--font-heading), no Vollkorn. */
-h1,
-h2,
-h3 {
-  font-family: 'Vollkorn', serif;
-}
-
-h1 :is(em, .italic),
-h2 :is(em, .italic),
-h3 :is(em, .italic) {
-  font-family: var(--font-heading);
+/* Tabs de categoría (Servicios): hover solo en el tab inactivo, el activo
+   ya está resaltado y no necesita feedback de hover. */
+.tab-categoria-inactiva:hover {
+  opacity: 0.7;
 }

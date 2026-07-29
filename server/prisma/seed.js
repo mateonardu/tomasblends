@@ -1,5 +1,5 @@
 /**
- * Datos de prueba coherentes con src/config/site.config.js ("Estética Aura").
+ * Datos de prueba coherentes con src/config/site.config.js (Tomás Blends).
  * Uso: npm run seed
  */
 
@@ -8,35 +8,24 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// Los 4 servicios de siteConfig.servicios.
+// Los 2 servicios de siteConfig.servicios. El nombre tiene que matchear
+// exacto: Turnos.jsx reconcilia el servicio elegido en las cards (id
+// string del config) con su equivalente real de acá por `nombre`, y si
+// no encuentra coincidencia limpia la selección.
 const SERVICIOS = [
   {
-    nombre: 'Limpieza facial profunda',
-    descripcion: 'Higiene, exfoliación, extracción y máscara según tu tipo de piel.',
-    duracionMin: 60,
-    precio: 28000,
-    porcentajeSena: 30,
-  },
-  {
-    nombre: 'Perfilado de cejas',
-    descripcion: 'Diseño y perfilado con henna o laminado, según tu estilo.',
+    nombre: 'Corte & Blend',
+    descripcion: 'Corte con degradé personalizado, ajustado a tu forma de cara y tu estilo de vida.',
     duracionMin: 45,
-    precio: 18000,
+    precio: 16000,
     porcentajeSena: 30,
   },
   {
-    nombre: 'Lifting de pestañas',
-    descripcion: 'Curvado y tinte de pestañas naturales, efecto por 6 semanas.',
-    duracionMin: 75,
-    precio: 24000,
+    nombre: 'Asesoría de imagen',
+    descripcion: 'Análisis de estilo personalizado: definimos corte, color y estética según tu cara y tu forma de vida.',
+    duracionMin: 90,
+    precio: 45000,
     porcentajeSena: 50,
-  },
-  {
-    nombre: 'Manicura semipermanente',
-    descripcion: 'Esmaltado semipermanente con fortalecimiento de uñas.',
-    duracionMin: 60,
-    precio: 15000,
-    porcentajeSena: 0,
   },
 ];
 
@@ -44,10 +33,10 @@ const SERVICIOS = [
 const HORARIOS = [
   { diaSemana: 0, abre: '', cierra: '', cerrado: true }, // domingo
   { diaSemana: 1, abre: '', cierra: '', cerrado: true }, // lunes
-  { diaSemana: 2, abre: '09:00', cierra: '19:00', cerrado: false }, // martes
-  { diaSemana: 3, abre: '09:00', cierra: '19:00', cerrado: false }, // miércoles
-  { diaSemana: 4, abre: '09:00', cierra: '19:00', cerrado: false }, // jueves
-  { diaSemana: 5, abre: '09:00', cierra: '20:00', cerrado: false }, // viernes
+  { diaSemana: 2, abre: '12:00', cierra: '20:00', cerrado: false }, // martes
+  { diaSemana: 3, abre: '12:00', cierra: '20:00', cerrado: false }, // miércoles
+  { diaSemana: 4, abre: '12:00', cierra: '20:00', cerrado: false }, // jueves
+  { diaSemana: 5, abre: '12:00', cierra: '20:00', cerrado: false }, // viernes
   { diaSemana: 6, abre: '10:00', cierra: '18:00', cerrado: false }, // sábado
 ];
 
@@ -89,28 +78,28 @@ async function main() {
   // 3 turnos confirmados en fechas futuras, en días que el local abre.
   const ejemplos = [
     {
-      servicio: servicios[0], // limpieza facial
+      servicio: servicios[0], // Corte & Blend
       diaSemana: 2, // martes
-      horaInicio: '10:00',
-      nombreCliente: 'Camila Rodríguez',
+      horaInicio: '14:00',
+      nombreCliente: 'Franco L.',
       telefonoCliente: '+54 9 11 5555-1111',
-      emailCliente: 'camila.rodriguez@example.com',
+      emailCliente: 'franco.l@example.com',
     },
     {
-      servicio: servicios[1], // perfilado de cejas
+      servicio: servicios[1], // Asesoría de imagen
       diaSemana: 5, // viernes
-      horaInicio: '15:30',
-      nombreCliente: 'Julieta Medina',
+      horaInicio: '16:00',
+      nombreCliente: 'Ignacio P.',
       telefonoCliente: '+54 9 11 5555-2222',
       emailCliente: null,
     },
     {
-      servicio: servicios[2], // lifting de pestañas
+      servicio: servicios[0], // Corte & Blend
       diaSemana: 6, // sábado
       horaInicio: '11:00',
-      nombreCliente: 'Sofía González',
+      nombreCliente: 'Bruno S.',
       telefonoCliente: '+54 9 11 5555-3333',
-      emailCliente: 'sofia.gonzalez@example.com',
+      emailCliente: 'bruno.s@example.com',
     },
   ];
 

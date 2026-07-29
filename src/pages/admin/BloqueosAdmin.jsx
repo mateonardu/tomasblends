@@ -69,7 +69,7 @@ function Bloqueos() {
 
   return (
     <div>
-      <form onSubmit={agregar} className="rounded-2xl bg-white p-4 shadow-sm">
+      <form onSubmit={agregar} className="rounded-2xl bg-surface p-4 shadow-sm">
         <p className="font-semibold">Bloquear un día</p>
         <p className="text-xs opacity-70">
           Ese día no se van a poder reservar turnos.
@@ -128,7 +128,7 @@ function Bloqueos() {
           {bloqueos.map((bloqueo) => (
             <li
               key={bloqueo.id}
-              className="flex items-center justify-between gap-3 rounded-2xl bg-white p-4 shadow-sm"
+              className="flex items-center justify-between gap-3 rounded-2xl bg-surface p-4 shadow-sm"
             >
               <div>
                 <p className="text-sm font-semibold capitalize">

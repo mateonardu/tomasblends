@@ -4,188 +4,324 @@
  * todo sale de acá.
  */
 
-import logoAura from '../assets/logo-aura.svg'
-import heroFondo from '../assets/hero-fondo.webp'
-import imgLimpieza from '../assets/limpieza.webp'
-import imgCejas from '../assets/cejas.webp'
-import imgPestanas from '../assets/lifting-pestanas.webp'
-import imgManicura from '../assets/manicura.webp'
+import logo from '../assets/logo-header.png'
+// TODO: reemplazar con foto real de Juan (actualmente placeholder de stock).
+import corteHero from '../assets/corte-hero.jpg'
+
+// Fotos de las cards de servicios.
+import fotoCorte from '../assets/corte-pelo4.png'
+import fotoColor from '../assets/corte-color.png'
+import fotoBalayage from '../assets/corte-pelo-2.png'
+import fotoBabylights from '../assets/corte-pelo6.png'
+import fotoIona from '../assets/corte-pelo5.png'
+import fotoAsesoriaGeneral from '../assets/asesoria-general.jpg'
+import fotoAsesoriaImagen from '../assets/asesoria-imagen.png'
+import fotoPeinadoSocial from '../assets/corte-pelo.png'
+import fotoPeinadoRecogido from '../assets/corte-pelo-3.png'
+// TODO: no hay fotos propias de maquillaje todavía — se reutilizan fotos
+// de otras cards como placeholder. Reemplazar apenas estén disponibles.
+import fotoMaquillajeSocial from '../assets/corte-pelo4.png'
+import fotoMaquillajeEvento from '../assets/asesoria-imagen.png'
+
+import reel1 from '../assets/reels/reel-1.mp4'
+import reel2 from '../assets/reels/reel-2.mp4'
+import reel3 from '../assets/reels/reel-3.mp4'
+// Frame fijo (no el primer cuadro, que en reel-1 y reel-2 arranca en negro)
+// para que la miniatura muestre imagen antes de reproducir.
+import reel1Poster from '../assets/reels/reel-1-poster.jpg'
+import reel2Poster from '../assets/reels/reel-2-poster.jpg'
 
 export const siteConfig = {
   marca: {
-    nombre: 'Estética Aura',
-    slogan: 'Tu momento de belleza y bienestar',
-    logo: logoAura,
-    heroImagen: heroFondo,
+    nombre: 'Look & Arte',
+    logo,
+    slogan: 'Estilo y asesoría de imagen en Parque Chas.',
+    heroImagen: corteHero,
     descripcionCorta:
-      'Centro de estética integral en Palermo. Tratamientos faciales, cejas, pestañas y manicura con turnos por WhatsApp.',
+      'Peluquería de Juan en Parque Chas. Cabello, color y asesoría de imagen personal, con la técnica como base de cada trabajo.',
   },
 
   tema: {
     colores: {
-      primario: '#b76e79',   // rosa viejo
-      primarioHover: '#9e5a6c',
-      secundario: '#f3e5e0', // nude claro
-      fondo: '#fdf9f7',
-      texto: '#3d2c2e',
-      acento: '#8a5a44',     // marrón cálido
-      promoBarFondo: '#4a353b',
-      promoBarTexto: '#f6eae6',
-      exito: '#5fa97c',
-      estrellas: '#c9973f',
-      footerFondo: '#3a2c2f',
-      footerTexto: '#d9c8c3',
+      primario: '#C9A84C', // dorado cálido, CTAs y acentos
+      primarioHover: '#AB8F41',
+      secundario: '#171310', // casi negro con base cálida: texto, bordes y superficies oscuras
+      superficie: '#F5ECD7', // crema/marfil, fondo de cards y paneles claros
+      fondo: '#0A0A0A', // negro profundo
+      texto: '#F0EDE8', // blanco roto, texto principal sobre fondo oscuro
+      acento: '#A0714F', // bronce, acento complementario
+      promoBarFondo: '#050505',
+      promoBarTexto: '#F0EDE8',
+      exito: '#5A8F6B',
+      estrellas: '#C9A84C',
+      footerFondo: '#050505',
+      footerTexto: '#C9C2B0',
     },
-    fuenteTitulos: "'Playfair Display', Georgia, serif",
-    fuenteTexto: "'Inter', system-ui, sans-serif",
-    fuenteUI: "'Karla', system-ui, sans-serif",
+    fuenteTitulos: "'Cormorant Garamond', Georgia, serif",
+    fuenteTexto: "'DM Sans', system-ui, sans-serif",
+    fuenteUI: "'DM Sans', system-ui, sans-serif",
   },
 
   textos: {
     hero: {
-      eyebrow: 'Estética facial · Palermo, Buenos Aires',
-      tituloPrincipal: 'Tu piel en manos expertas.',
-      tituloEnfasis: 'Tu turno, online en un minuto.',
-      subcopy:
-        'Cinco años cuidando rostros en Palermo. Elegí tu tratamiento, el día y la hora directo desde acá, sin mensajes, sin espera.',
-      ctaPrimario: 'Reservar turno online →',
-      disponibilidad: 'Hoy hay turnos disponibles',
-      ratingValor: '4,9',
-      ratingTexto: 'en Google · más de 500 clientas nos eligen',
+      eyebrow: 'Cabello y color · Asesoría de imagen · Parque Chas',
+      tituloPrincipal: 'Tu mejor versión empieza',
+      tituloEnfasis: 'con el corte correcto.',
+      subcopy: 'Reservá tu turno en Parque Chas.',
+      ctaPrimario: 'Reservar turno →',
+      disponibilidad: 'Quedan turnos esta semana',
+      ratingValor: '5,0',
+      ratingTexto: 'en Google · clientas y clientes de Look & Arte',
     },
     servicios: {
-      titulo: 'Nuestros servicios',
-      subtitulo: 'Elegí tu tratamiento y reservá tu turno en un toque.',
-      badgeDestacado: 'Más pedido',
+      titulo: 'Servicios',
+      subtitulo: 'Cabello, color y asesoría de imagen. Elegí el tuyo.',
+      badgeDestacado: 'El más elegido',
       cta: 'Elegir día y hora →',
     },
-    galeria: {
-      titulo: 'Nuestro trabajo',
-      subtitulo: 'Resultados reales de nuestros tratamientos.',
-      tabGrilla: 'Grilla',
-      tabCarrusel: 'Carrusel',
-      hintCarrusel: 'Deslizá para ver más →',
+    reels: {
+      titulo: 'Trabajos',
+      subtitulo: 'Estilo, color y una mirada personal sobre la imagen.',
     },
     testimonios: {
-      titulo: 'Lo que dicen nuestras clientas',
-      subtitulo: 'Experiencias reales de quienes ya nos visitaron.',
+      titulo: 'Lo que dicen los que ya pasaron por acá',
+      subtitulo: 'Resultados, no promesas.',
     },
     turnos: {
       titulo: 'Reservá tu turno',
-      subtitulo: 'Elegí el servicio, el día y el horario. Te esperamos.',
-      estadoVacioTitulo: 'Empezá eligiendo un tratamiento',
+      subtitulo: 'Elegí el servicio, el día y el horario.',
+      estadoVacioTitulo: 'Arrancá eligiendo un servicio',
       estadoVacioTexto:
         'Tocá una de las tarjetas de arriba y seguís acá con el día y el horario.',
-      estadoVacioBoton: 'Ver tratamientos ↑',
+      estadoVacioBoton: 'Ver servicios ↑',
     },
     ubicacion: {
       titulo: 'Horarios y ubicación',
-      subtitulo: 'Vení a conocernos, te esperamos.',
+      subtitulo: 'Turnos con hora fija, sin esperas.',
     },
   },
 
+  // Categorías del paso 0 del wizard (PasoCategoria) y de la grilla de
+  // Servicios. El id tiene que matchear el campo `categoria` de cada
+  // servicio de abajo.
+  categoriasServicios: [
+    {
+      id: 'cabello',
+      nombre: 'Cabello y color',
+      nombreCorto: 'Cabello y Color',
+      descripcion: 'Corte, color, balayage, babylights e Iona.',
+    },
+    {
+      id: 'imagen',
+      nombre: 'Imagen y estilo personal',
+      nombreCorto: 'Imagen y Estilo',
+      descripcion: 'Asesoría de imagen, maquillaje y peinados.',
+    },
+  ],
+
+  // Precios y duraciones en 0: no confirmados todavía.
+  // TODO: confirmar con el cliente precio, duración y porcentaje de seña de cada servicio.
   servicios: [
+    // Cabello y color
     {
-      id: 'limpieza-facial',
-      nombre: 'Limpieza facial profunda',
-      descripcion:
-        'Higiene, exfoliación, extracción y máscara según tu tipo de piel.',
-      duracionMin: 60,
-      precio: 28000,
-      porcentajeSena: 30,
-      imagen: imgLimpieza,
-      destacado: true,
-    },
-    {
-      id: 'perfilado-cejas',
-      nombre: 'Perfilado de cejas',
-      descripcion: 'Diseño y perfilado con henna o laminado, según tu estilo.',
-      duracionMin: 45,
-      precio: 18000,
-      porcentajeSena: 30,
-      imagen: imgCejas,
-      destacado: true,
-    },
-    {
-      id: 'lifting-pestanas',
-      nombre: 'Lifting de pestañas',
-      descripcion: 'Curvado y tinte de pestañas naturales, efecto por 6 semanas.',
-      duracionMin: 75,
-      precio: 24000,
-      porcentajeSena: 50,
-      imagen: imgPestanas,
-      destacado: false,
-    },
-    {
-      id: 'manicura-semi',
-      nombre: 'Manicura semipermanente',
-      descripcion: 'Esmaltado semipermanente con fortalecimiento de uñas.',
-      duracionMin: 60,
-      precio: 15000,
+      id: 'corte',
+      categoria: 'cabello',
+      nombre: 'Corte',
+      descripcion: 'Corte a medida, pensado según tu forma de cara y tu día a día.',
+      duracionMin: 0,
+      precio: 0,
       porcentajeSena: 0,
-      imagen: imgManicura,
+      imagen: fotoCorte,
+      destacado: false,
+    },
+    {
+      id: 'color',
+      categoria: 'cabello',
+      nombre: 'Color',
+      descripcion: 'Color de base o retoque de raíz, con la técnica justa para tu tono de piel.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoColor,
+      destacado: false,
+    },
+    {
+      id: 'balayage',
+      categoria: 'cabello',
+      nombre: 'Balayage',
+      descripcion: 'Iluminación degradada y natural, aplicada a mano para un efecto de sol real.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoBalayage,
+      destacado: false,
+    },
+    {
+      id: 'babylights',
+      categoria: 'cabello',
+      nombre: 'Babylights',
+      descripcion: 'Mechas finas y muy sutiles, para un cambio de luz sin perder naturalidad.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoBabylights,
+      destacado: false,
+    },
+    {
+      id: 'iona',
+      categoria: 'cabello',
+      nombre: 'Iona',
+      descripcion: 'Tratamiento de coloración de última generación, cuida la fibra mientras colorea.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoIona,
+      destacado: false,
+    },
+    // Imagen y estilo personal
+    {
+      id: 'asesoria-general',
+      categoria: 'imagen',
+      nombre: 'Asesoría general',
+      descripcion: 'Diagnóstico completo de imagen: color, corte y estilo según tu forma de vida.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoAsesoriaGeneral,
+      destacado: true,
+    },
+    {
+      id: 'asesoria-imagen',
+      categoria: 'imagen',
+      nombre: 'Asesoría de imagen',
+      descripcion: 'Trabajo personalizado sobre tu estilo: qué te favorece y por qué, sin recetas genéricas.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoAsesoriaImagen,
+      destacado: false,
+    },
+    {
+      id: 'maquillaje-social',
+      categoria: 'imagen',
+      nombre: 'Maquillaje social',
+      descripcion: 'Maquillaje para el día a día o una salida, natural y de larga duración.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoMaquillajeSocial,
+      destacado: false,
+    },
+    {
+      id: 'maquillaje-evento',
+      categoria: 'imagen',
+      nombre: 'Maquillaje de evento',
+      descripcion: 'Maquillaje de alta duración para fiestas, casamientos y ocasiones especiales.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoMaquillajeEvento,
+      destacado: false,
+    },
+    {
+      id: 'peinado-social',
+      categoria: 'imagen',
+      nombre: 'Peinado social',
+      descripcion: 'Peinado prolijo y resistente para salir, adaptado a tu tipo de cabello.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoPeinadoSocial,
+      destacado: false,
+    },
+    {
+      id: 'peinado-recogido',
+      categoria: 'imagen',
+      nombre: 'Peinado recogido',
+      descripcion: 'Recogido prolijo para eventos, pensado para durar toda la fiesta.',
+      duracionMin: 0,
+      precio: 0,
+      porcentajeSena: 0,
+      imagen: fotoPeinadoRecogido,
       destacado: false,
     },
   ],
 
-  // `alto` es el peso relativo de cada foto en la grilla asimétrica
-  // (masonry): a mayor valor, más alta la tarjeta.
-  galeria: [
-    { imagen: imgLimpieza, alto: 340 },
-    { imagen: imgCejas, alto: 260 },
-    { imagen: imgPestanas, alto: 400 },
-    { imagen: heroFondo, alto: 300 },
-    { imagen: imgManicura, alto: 360 },
+  reels: [
+    {
+      video: reel1,
+      thumbnail: reel1Poster,
+      nombre: 'Look & Arte Estilismo',
+      descripcion: 'Un look bien elegido dice mucho de quién sos.',
+    },
+    {
+      video: reel2,
+      thumbnail: reel2Poster,
+      // TODO: el video muestra a "Marcelo" (estilista y coach en imagen
+      // personal), no a Juan — confirmar con el cliente si corresponde
+      // reemplazarlo por contenido propio.
+      nombre: 'Marcelo',
+      descripcion: 'Estilista y coach en imagen personal.',
+    },
+    {
+      video: reel3,
+      nombre: 'Look & Arte Estilismo',
+      descripcion: 'Hay colores que llaman la atención. Y otros que transmiten personalidad.',
+    },
   ],
 
+  // TODO: reemplazar por testimonios reales de clientas y clientes de Juan.
   testimonios: [
     {
-      nombre: 'Camila R.',
+      nombre: 'Marina T.',
       texto:
-        'Me hice el lifting de pestañas y quedé fascinada. Súper prolijas y el lugar es divino.',
-      servicio: 'Lifting de pestañas',
+        'Fui a la asesoría de imagen sin muy en claro qué quería y Juan me lo explicó todo: por qué ese corte, por qué ese color. Se nota la técnica atrás de cada decisión.',
+      servicio: 'Asesoría de imagen',
     },
     {
-      nombre: 'Julieta M.',
+      nombre: 'Sol R.',
       texto:
-        'La limpieza facial me cambió la piel. Atención de diez y sacar turno por WhatsApp es rapidísimo.',
-      servicio: 'Limpieza facial profunda',
+        'El balayage me quedó exactamente como lo hablamos, natural y fácil de mantener. Primera vez que un cambio de color no me generó dudas después.',
+      servicio: 'Balayage',
     },
     {
-      nombre: 'Sofía G.',
-      texto: 'Voy todos los meses por las cejas, nunca me fallan con el diseño.',
-      servicio: 'Perfilado de cejas',
+      nombre: 'Camila D.',
+      texto:
+        'Fui por un peinado para un casamiento y terminé entendiendo mejor mi propio pelo. Atención personalizada de principio a fin.',
+      servicio: 'Peinado recogido',
     },
   ],
 
+  // TODO: confirmar horarios reales con el cliente.
   horarios: [
     { dia: 'Lunes', abre: '', cierra: '', cerrado: true },
-    { dia: 'Martes', abre: '09:00', cierra: '19:00', cerrado: false },
-    { dia: 'Miércoles', abre: '09:00', cierra: '19:00', cerrado: false },
-    { dia: 'Jueves', abre: '09:00', cierra: '19:00', cerrado: false },
-    { dia: 'Viernes', abre: '09:00', cierra: '20:00', cerrado: false },
+    { dia: 'Martes', abre: '12:00', cierra: '20:00', cerrado: false },
+    { dia: 'Miércoles', abre: '12:00', cierra: '20:00', cerrado: false },
+    { dia: 'Jueves', abre: '12:00', cierra: '20:00', cerrado: false },
+    { dia: 'Viernes', abre: '12:00', cierra: '20:00', cerrado: false },
     { dia: 'Sábado', abre: '10:00', cierra: '18:00', cerrado: false },
     { dia: 'Domingo', abre: '', cierra: '', cerrado: true },
   ],
 
+  // TODO: confirmar dirección exacta con el cliente.
   ubicacion: {
-    direccion: 'Av. Santa Fe 3456, Piso 1',
-    barrio: 'Palermo',
-    ciudad: 'Buenos Aires',
-    linkGoogleMaps: 'https://maps.google.com/?q=Av.+Santa+Fe+3456+CABA',
+    direccion: 'Dirección a confirmar',
+    barrio: 'Parque Chas',
+    ciudad: 'CABA',
+    linkGoogleMaps: 'https://maps.google.com/?q=Parque+Chas+CABA',
   },
 
   // instagram y tiktok son opcionales: dejar en null si el cliente no tiene.
+  // TODO: cargar redes sociales reales de Look & Arte Estilismo.
   redes: {
-    instagram: 'https://instagram.com/estetica.aura',
+    instagram: null,
     tiktok: null,
   },
 
   whatsapp: {
-    numero: '5491122334455', // sin "+", formato wa.me
+    numero: '5491100000000', // sin "+", formato wa.me — PLACEHOLDER, reemplazar por el número real
     mensajes: {
-      consultaGeneral:
-        'Hola, tenía una consulta sobre los servicios',
+      consultaGeneral: 'Hola, quería consultar por los servicios',
       // {servicio}, {fecha}, {hora} y {nombre} se interpolan al confirmar la reserva.
       reservaTurno:
         'Hola! Soy {nombre}. Quiero confirmar mi turno de {servicio} el {fecha} a las {hora} hs.',
@@ -194,15 +330,15 @@ export const siteConfig = {
 
   secciones: {
     testimonios: true,
-    galeria: false,
+    reels: true,
     equipo: false,
     promo: true,
   },
 
   promo: {
     activa: true,
-    titulo: '10% OFF en tu primera reserva online',
-    texto: 'Reservá tu turno online y obtené el descuento en tu primera visita.',
+    titulo: '10% OFF en tu primer turno online',
+    texto: 'Reservá tu turno online y sumá el descuento en tu primera visita.',
   },
 
   // Barra fija de promociones, arriba del todo. Rota entre los mensajes cada
@@ -213,16 +349,16 @@ export const siteConfig = {
     rotarCadaSegundos: 5,
     mensajes: [
       {
-        texto: '20% OFF en tu primera visita, reservando online',
-        cupon: 'AURA20',
+        texto: '10% OFF en tu primer corte o color, reservando online',
+        cupon: 'ESTILO10',
       },
       {
-        texto: 'Martes de cejas: 2x1 en perfilado reservando online',
-        cupon: 'CEJAS2X1',
+        texto: 'Asesoría de imagen: cupo limitado este mes',
+        cupon: 'IMAGEN15',
       },
       {
-        texto: 'Este mes: 15% en limpiezas faciales profundas',
-        cupon: 'GLOW15',
+        texto: 'Reservá online y asegurá tu horario',
+        cupon: null,
       },
     ],
   },

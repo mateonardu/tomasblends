@@ -88,7 +88,7 @@ function Agenda() {
       ) : (
         <ul className="mt-4 flex flex-col gap-3">
           {turnos.map((turno) => (
-            <li key={turno.id} className="rounded-2xl bg-white p-4 shadow-sm">
+            <li key={turno.id} className="rounded-2xl bg-surface p-4 shadow-sm">
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p className="font-bold">
