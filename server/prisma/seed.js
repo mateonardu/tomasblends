@@ -1,5 +1,6 @@
 /**
- * Datos de prueba coherentes con src/config/site.config.js (Tomás Blends).
+ * Datos de prueba coherentes con src/config/site.config.js (Look & Arte
+ * Estilismo).
  * Uso: npm run seed
  */
 
@@ -8,24 +9,90 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// Los 2 servicios de siteConfig.servicios. El nombre tiene que matchear
+// Los 11 servicios de siteConfig.servicios. El nombre tiene que matchear
 // exacto: Turnos.jsx reconcilia el servicio elegido en las cards (id
 // string del config) con su equivalente real de acá por `nombre`, y si
 // no encuentra coincidencia limpia la selección.
+// Precio y duración en 0: no confirmados todavía (ver TODO en site.config.js).
 const SERVICIOS = [
+  // Cabello y color
   {
-    nombre: 'Corte & Blend',
-    descripcion: 'Corte con degradé personalizado, ajustado a tu forma de cara y tu estilo de vida.',
-    duracionMin: 45,
-    precio: 16000,
-    porcentajeSena: 30,
+    nombre: 'Corte',
+    descripcion: 'Corte a medida, pensado según tu forma de cara y tu día a día.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Color',
+    descripcion: 'Color de base o retoque de raíz, con la técnica justa para tu tono de piel.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Balayage',
+    descripcion: 'Iluminación degradada y natural, aplicada a mano para un efecto de sol real.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Babylights',
+    descripcion: 'Mechas finas y muy sutiles, para un cambio de luz sin perder naturalidad.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Iona',
+    descripcion: 'Tratamiento de coloración de última generación, cuida la fibra mientras colorea.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  // Imagen y estilo personal
+  {
+    nombre: 'Asesoría general',
+    descripcion: 'Diagnóstico completo de imagen: color, corte y estilo según tu forma de vida.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
   },
   {
     nombre: 'Asesoría de imagen',
-    descripcion: 'Análisis de estilo personalizado: definimos corte, color y estética según tu cara y tu forma de vida.',
-    duracionMin: 90,
-    precio: 45000,
-    porcentajeSena: 50,
+    descripcion: 'Trabajo personalizado sobre tu estilo: qué te favorece y por qué, sin recetas genéricas.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Maquillaje social',
+    descripcion: 'Maquillaje para el día a día o una salida, natural y de larga duración.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Maquillaje de evento',
+    descripcion: 'Maquillaje de alta duración para fiestas, casamientos y ocasiones especiales.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Peinado social',
+    descripcion: 'Peinado prolijo y resistente para salir, adaptado a tu tipo de cabello.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
+  },
+  {
+    nombre: 'Peinado recogido',
+    descripcion: 'Recogido prolijo para eventos, pensado para durar toda la fiesta.',
+    duracionMin: 0,
+    precio: 0,
+    porcentajeSena: 0,
   },
 ];
 
@@ -72,13 +139,14 @@ async function main() {
   for (const data of SERVICIOS) {
     servicios.push(await prisma.servicio.create({ data }));
   }
+  const porNombre = (nombre) => servicios.find((s) => s.nombre === nombre);
 
   await prisma.horarioSemana.createMany({ data: HORARIOS });
 
   // 3 turnos confirmados en fechas futuras, en días que el local abre.
   const ejemplos = [
     {
-      servicio: servicios[0], // Corte & Blend
+      servicio: porNombre('Corte'),
       diaSemana: 2, // martes
       horaInicio: '14:00',
       nombreCliente: 'Franco L.',
@@ -86,7 +154,7 @@ async function main() {
       emailCliente: 'franco.l@example.com',
     },
     {
-      servicio: servicios[1], // Asesoría de imagen
+      servicio: porNombre('Asesoría de imagen'),
       diaSemana: 5, // viernes
       horaInicio: '16:00',
       nombreCliente: 'Ignacio P.',
@@ -94,7 +162,7 @@ async function main() {
       emailCliente: null,
     },
     {
-      servicio: servicios[0], // Corte & Blend
+      servicio: porNombre('Balayage'),
       diaSemana: 6, // sábado
       horaInicio: '11:00',
       nombreCliente: 'Bruno S.',

@@ -48,7 +48,7 @@ export default function Testimonios() {
         }`}
       >
         <ul
-          className="marquee-track animate-[aura-marquee_1s_linear_infinite] flex w-max gap-5 py-1.5 hover:[animation-play-state:paused]"
+          className="marquee-track animate-[aura-marquee_1s_linear_infinite] flex w-max gap-5 py-1.5"
           style={{ animationDuration: `${duracionSeg}s` }}
         >
           {tarjetas.map((testimonio, i) => (
@@ -72,7 +72,9 @@ export default function Testimonios() {
                   </span>
                   <span className="flex flex-col">
                     <span className="text-sm font-semibold text-secondary">{testimonio.nombre}</span>
-                    <span className="text-xs text-accent">{testimonio.servicio}</span>
+                    {testimonio.servicio && (
+                      <span className="text-xs text-accent">{testimonio.servicio}</span>
+                    )}
                   </span>
                 </figcaption>
               </figure>

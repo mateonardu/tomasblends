@@ -270,25 +270,79 @@ export const siteConfig = {
     },
   ],
 
-  // TODO: reemplazar por testimonios reales de clientas y clientes de Juan.
+  // Testimonios reales de Google (todos 5 estrellas).
   testimonios: [
     {
-      nombre: 'Marina T.',
+      nombre: 'Maria Belen Fuentes',
       texto:
-        'Fui a la asesoría de imagen sin muy en claro qué quería y Juan me lo explicó todo: por qué ese corte, por qué ese color. Se nota la técnica atrás de cada decisión.',
+        'Que gran hallazgo esta peluquería! Hermoso mi cambio de look. La china interpreto perfecto lo que quería! Te amo China!!',
+      servicio: '',
+    },
+    {
+      nombre: 'Nayla Sacchi',
+      texto:
+        'La primera vez que me atiendo y quedé súper contenta. No sabía mucho qué hacerme exactamente y me ayudó con mucha paciencia. Se nota que saben.',
+      servicio: '',
+    },
+    {
+      nombre: 'Analia Fernandez',
+      texto:
+        'Me encantó el lugar y la atención! Sali feliz. Me atendió Silvana una genia y supo darme el look que venía buscando. Ya la energía del lugar te baja mil cambios, gracias y volveré a elegirlos.',
+      servicio: '',
+    },
+    {
+      nombre: 'Paula De Santis',
+      texto:
+        'Mi 1era vez atendiéndome con ellos y la verdad que superó todas mis expectativas. Marce es todo lo que está bien!! Se tomó su tiempo para escuchar mis ideas y, usando sus conocimientos como asesor de imagen, terminó haciendo magia.',
       servicio: 'Asesoría de imagen',
     },
     {
-      nombre: 'Sol R.',
+      nombre: 'Cristina Di Chiara',
       texto:
-        'El balayage me quedó exactamente como lo hablamos, natural y fácil de mantener. Primera vez que un cambio de color no me generó dudas después.',
-      servicio: 'Balayage',
+        'Marcelo y Nicolas...2 genios!! Como personas y profesionales, son únicos, educados, respetuosos, y para mí son AMIGOS!! Gracias por lo que brindan y hacen! Por siempre los elijo!! Dios los bendiga mucho!!',
+      servicio: '',
     },
     {
-      nombre: 'Camila D.',
+      nombre: 'Mariela Delgado',
       texto:
-        'Fui por un peinado para un casamiento y terminé entendiendo mejor mi propio pelo. Atención personalizada de principio a fin.',
-      servicio: 'Peinado recogido',
+        'Excelente trato, equipo profesional y capacitado. Un lugar tranquilo y cómodo para darse un mimo y salir renovada.',
+      servicio: '',
+    },
+    {
+      nombre: 'Marcela Vázquez',
+      texto:
+        'Súper recomendadas! Quería destacar especialmente a Mili y China. Mili me atendió con una calidez increíble desde el inicio, y China es una artista; logró exactamente el peinado, maquillaje divino. Un servicio profesional y con mucha buena onda. ¡Volveré sin dudarlo!',
+      servicio: 'Peinado y maquillaje',
+    },
+    {
+      nombre: 'Cecilia',
+      texto:
+        'Excelente profesional Marcelo, muy atento a la necesidad y estilo del cliente y una hermosa calidez en el trato. Nos vamos a ver seguido... Muchas gracias!',
+      servicio: '',
+    },
+    {
+      nombre: 'Yanel Martens',
+      texto:
+        'Los descubrí hace 10 años y siempre vuelvo! Marce es un genio, asesoran súper bien y la atención es excelente. Un lujo.',
+      servicio: '',
+    },
+    {
+      nombre: 'Melody Padilla',
+      texto:
+        'Marce es el mejor, hace años que voy, sinceramente rescato mis pelos del desastre que tenía. Los súper recomiendo! Son lo MÁS!',
+      servicio: '',
+    },
+    {
+      nombre: 'Florencia RS',
+      texto:
+        'Hace 15 años me atiende con Marce y no lo cambio por nada! No sólo es un EXCELENTE profesional sino que junto a Nico te atienden cual reina, en un ambiente súper cálido y armonioso. La buena energía se siente y te da gusto estar ahí.',
+      servicio: '',
+    },
+    {
+      nombre: 'Cecilia Ceballos',
+      texto:
+        'Excelente atención en un clima increíble, distendido donde te hacen sentir una reina, me atendió con Marcelo, un genio en lo suyo, super recomendable.',
+      servicio: '',
     },
   ],
 
