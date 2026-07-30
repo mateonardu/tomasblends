@@ -1,4 +1,5 @@
 import { siteConfig } from '../config/site.config'
+import { linkConsultaGeneral } from '../utils/whatsapp'
 
 // Tailwind extrae clases del texto fuente tal cual está escrito, así que los
 // delays van como literales completos (no se pueden armar con template
@@ -16,6 +17,7 @@ const ANIM_IMAGEN =
 export default function Hero() {
   const { marca, textos } = siteConfig
   const { hero } = textos
+  const turnosActivo = siteConfig.secciones.turnos
 
   return (
     <section
@@ -87,7 +89,8 @@ export default function Hero() {
 
           <div className={`flex flex-wrap items-center gap-[18px] ${ANIM_36}`}>
             <a
-              href="#turnos"
+              href={turnosActivo ? '#turnos' : linkConsultaGeneral()}
+              {...(!turnosActivo && { target: '_blank', rel: 'noopener noreferrer' })}
               className="inline-flex items-center gap-2.5 rounded-full bg-primary px-[34px] py-[17px] text-[16.5px] font-bold text-white shadow-[0_10px_28px_rgba(138,113,72,.35)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-[0_14px_34px_rgba(138,113,72,.42)]"
             >
               {hero.ctaPrimario}

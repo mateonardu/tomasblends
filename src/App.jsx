@@ -3,6 +3,7 @@ import ThemeProvider from './components/ThemeProvider'
 import { TurnosProvider } from './components/turnos/TurnosContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
+import SobreNosotros from './components/SobreNosotros'
 import Promo from './components/Promo'
 import Servicios from './components/Servicios'
 import Turnos from './components/turnos/Turnos'
@@ -18,10 +19,11 @@ import BotonWhatsApp from './components/BotonWhatsApp'
  */
 const secciones = [
   { id: 'hero', Componente: Hero, visible: true },
+  { id: 'sobre-nosotros', Componente: SobreNosotros, visible: siteConfig.secciones.sobreNosotros },
   { id: 'promo', Componente: Promo, visible: siteConfig.secciones.promo && siteConfig.promo.activa },
   { id: 'servicios', Componente: Servicios, visible: true },
   { id: 'reels', Componente: Reels, visible: siteConfig.secciones.reels },
-  { id: 'turnos', Componente: Turnos, visible: true },
+  { id: 'turnos', Componente: Turnos, visible: siteConfig.secciones.turnos },
   { id: 'testimonios', Componente: Testimonios, visible: siteConfig.secciones.testimonios },
   { id: 'ubicacion', Componente: Ubicacion, visible: true },
 ]

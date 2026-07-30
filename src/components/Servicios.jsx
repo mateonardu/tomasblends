@@ -2,12 +2,14 @@ import { useState } from 'react'
 import { siteConfig } from '../config/site.config'
 import { formatDuracion, formatPrecio } from '../utils/format'
 import { useTurnos } from './turnos/TurnosContext'
+import { linkConsultaServicio } from '../utils/whatsapp'
 import { useReveal } from '../hooks/useReveal'
 
 function ServicioCard({ servicio, index }) {
   const { elegirServicio, elegirCategoria } = useTurnos()
   const { badgeDestacado, cta } = siteConfig.textos.servicios
   const [ref, visible] = useReveal()
+  const turnosActivo = siteConfig.secciones.turnos
 
   const elegir = () => {
     // Sincroniza la categoría con el servicio elegido, incluso si se
@@ -16,11 +18,20 @@ function ServicioCard({ servicio, index }) {
     elegirServicio(servicio)
   }
 
+  // Sin wizard de turnos, cada card va directo a WhatsApp con el
+  // servicio pre-armado en el mensaje.
+  const propsCta = turnosActivo
+    ? { href: '#turnos', onClick: elegir }
+    : {
+        href: linkConsultaServicio(servicio.nombre),
+        target: '_blank',
+        rel: 'noopener noreferrer',
+      }
+
   return (
     <a
       ref={ref}
-      href="#turnos"
-      onClick={elegir}
+      {...propsCta}
       style={{ transitionDelay: visible ? `${index * 100}ms` : '0ms' }}
       className={`reveal flex h-full flex-col overflow-hidden rounded-[20px] border border-secondary/70 bg-surface shadow-[0_8px_26px_rgba(74,53,59,.08)] hover:-translate-y-[5px] hover:scale-[1.02] hover:border-primary hover:shadow-[0_18px_40px_rgba(74,53,59,.14)] ${
         visible ? 'reveal-visible' : ''

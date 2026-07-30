@@ -67,8 +67,8 @@ export const siteConfig = {
       eyebrow: 'Cabello y color · Asesoría de imagen · Parque Chas',
       tituloPrincipal: 'Tu mejor versión empieza',
       tituloEnfasis: 'con el corte correcto.',
-      subcopy: 'Reservá tu turno en Parque Chas.',
-      ctaPrimario: 'Reservar turno →',
+      subcopy: 'Reservá tu turno por WhatsApp en Parque Chas.',
+      ctaPrimario: 'Reservar por WhatsApp →',
       disponibilidad: 'Quedan turnos esta semana',
       ratingValor: '5,0',
       ratingTexto: 'en Google · clientas y clientes de Look & Arte',
@@ -77,7 +77,7 @@ export const siteConfig = {
       titulo: 'Servicios',
       subtitulo: 'Cabello, color y asesoría de imagen. Elegí el tuyo.',
       badgeDestacado: 'El más elegido',
-      cta: 'Elegir día y hora →',
+      cta: 'Consultar por WhatsApp →',
     },
     reels: {
       titulo: 'Trabajos',
@@ -346,6 +346,15 @@ export const siteConfig = {
     },
   ],
 
+  // Texto libre de la sección "Sobre nosotros". `texto` usa "\n\n" como
+  // separador de párrafo (SobreNosotros.jsx lo parte ahí al renderizar).
+  sobreNosotros: {
+    titulo: 'Nuestra historia',
+    texto:
+      'Hace 18 años, con Nicolás soñamos con un lugar diferente: donde no solo se hiciera el cabello, sino que se viviera una experiencia de bienestar y confianza.\n\nLook nace de mi pasión por acompañar a cada persona a descubrir su mejor versión. Arte representa la mirada creativa de Nicolás, presente en cada rincón del salón desde el primer día.\n\nHoy, después de 18 años, seguimos creyendo en lo mismo: escuchar antes que cortar, entender antes que imponer un estilo. Porque un gran cambio de imagen siempre empieza cuando una persona se siente escuchada.',
+    firma: 'Marcelo Olmos',
+  },
+
   // TODO: confirmar horarios reales con el cliente.
   horarios: [
     { dia: 'Lunes', abre: '', cierra: '', cerrado: true },
@@ -376,7 +385,10 @@ export const siteConfig = {
     numero: '5491100000000', // sin "+", formato wa.me — PLACEHOLDER, reemplazar por el número real
     mensajes: {
       consultaGeneral: 'Hola, quería consultar por los servicios',
+      // {servicio} se interpola al tocar el CTA de una card de Servicios.
+      consultaServicio: 'Hola! Quiero consultar por el servicio de {servicio}',
       // {servicio}, {fecha}, {hora} y {nombre} se interpolan al confirmar la reserva.
+      // Solo se usa si secciones.turnos = true (wizard de reserva).
       reservaTurno:
         'Hola! Soy {nombre}. Quiero confirmar mi turno de {servicio} el {fecha} a las {hora} hs.',
     },
@@ -387,12 +399,17 @@ export const siteConfig = {
     reels: true,
     equipo: false,
     promo: true,
+    sobreNosotros: true,
+    // Look & Arte cerró sin sistema de turnos online: toda reserva se
+    // coordina por WhatsApp. El wizard sigue en components/turnos/ para
+    // otro cliente que sí lo quiera — solo hay que volver esto a true.
+    turnos: false,
   },
 
   promo: {
     activa: true,
-    titulo: '10% OFF en tu primer turno online',
-    texto: 'Reservá tu turno online y sumá el descuento en tu primera visita.',
+    titulo: '10% OFF en tu primer turno por WhatsApp',
+    texto: 'Reservá tu turno por WhatsApp y sumá el descuento en tu primera visita.',
   },
 
   // Barra fija de promociones, arriba del todo. Rota entre los mensajes cada
@@ -403,7 +420,7 @@ export const siteConfig = {
     rotarCadaSegundos: 5,
     mensajes: [
       {
-        texto: '10% OFF en tu primer corte o color, reservando online',
+        texto: '10% OFF en tu primer corte o color, reservando por WhatsApp',
         cupon: 'ESTILO10',
       },
       {
@@ -411,7 +428,7 @@ export const siteConfig = {
         cupon: 'IMAGEN15',
       },
       {
-        texto: 'Reservá online y asegurá tu horario',
+        texto: 'Reservá por WhatsApp y asegurá tu horario',
         cupon: null,
       },
     ],

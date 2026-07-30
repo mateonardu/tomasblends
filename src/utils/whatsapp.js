@@ -8,6 +8,15 @@ export function linkConsultaGeneral() {
   return linkWhatsApp(siteConfig.whatsapp.mensajes.consultaGeneral)
 }
 
+/** CTA de una card de Servicios cuando no hay wizard de turnos (secciones.turnos = false). */
+export function linkConsultaServicio(nombreServicio) {
+  const texto = siteConfig.whatsapp.mensajes.consultaServicio.replace(
+    '{servicio}',
+    nombreServicio,
+  )
+  return linkWhatsApp(texto)
+}
+
 /**
  * Único lugar que decide adónde va la confirmación de una reserva.
  * Interpola los placeholders {servicio}, {fecha}, {hora}, {nombre}

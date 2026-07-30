@@ -1,16 +1,21 @@
 import { useEffect, useState } from 'react'
 import { siteConfig } from '../config/site.config'
+import { linkConsultaGeneral } from '../utils/whatsapp'
 import PromoBar from './PromoBar'
 
 export const LINKS_NAV = [
   { etiqueta: 'Servicios', ancla: '#servicios' },
-  { etiqueta: 'Turnos', ancla: '#turnos' },
+  ...(siteConfig.secciones.turnos ? [{ etiqueta: 'Turnos', ancla: '#turnos' }] : []),
   ...(siteConfig.secciones.reels ? [{ etiqueta: 'Trabajos', ancla: '#reels' }] : []),
   { etiqueta: 'Ubicación', ancla: '#ubicacion' },
 ]
 
 export default function Header() {
   const { marca } = siteConfig
+  const turnosActivo = siteConfig.secciones.turnos
+  const ctaReserva = turnosActivo
+    ? { href: '#turnos', texto: 'Reservar online' }
+    : { href: linkConsultaGeneral(), texto: 'Reservar por WhatsApp', target: '_blank', rel: 'noopener noreferrer' }
   const [scrolleado, setScrolleado] = useState(false)
   const [menuAbierto, setMenuAbierto] = useState(false)
 
@@ -51,10 +56,12 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#turnos"
+              href={ctaReserva.href}
+              target={ctaReserva.target}
+              rel={ctaReserva.rel}
               className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-primary-hover hover:shadow-md"
             >
-              Reservar online
+              {ctaReserva.texto}
             </a>
           </nav>
 
@@ -95,11 +102,13 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#turnos"
+              href={ctaReserva.href}
+              target={ctaReserva.target}
+              rel={ctaReserva.rel}
               onClick={cerrarMenu}
               className="mt-2 mb-3 block rounded-full bg-primary px-5 py-3 text-center font-semibold text-white"
             >
-              Reservar online
+              {ctaReserva.texto}
             </a>
           </nav>
         )}
