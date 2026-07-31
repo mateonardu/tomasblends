@@ -56,15 +56,15 @@ function ServicioCard({ servicio, index }) {
         <p className="flex-1 text-sm text-secondary/70">{servicio.descripcion}</p>
 
         <div className="mt-1 flex items-baseline justify-between gap-3">
-          <span className="text-sm text-primary/80">
+          <span className="text-sm text-accent/80">
             {formatDuracion(servicio.duracionMin)}
           </span>
-          <span className="font-body text-lg font-bold text-primary">
+          <span className="font-body text-lg font-bold text-accent">
             {formatPrecio(servicio.precio)}
           </span>
         </div>
 
-        <div className="mt-2 border-t border-secondary/70 pt-3 text-sm font-bold text-primary">
+        <div className="mt-2 border-t border-secondary/70 pt-3 text-sm font-bold text-accent">
           {cta}
         </div>
       </div>
