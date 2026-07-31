@@ -130,7 +130,7 @@ export default function Servicios() {
         </div>
 
         {tabActiva ? (
-          <ul className="grid grid-cols-[repeat(auto-fit,minmax(245px,1fr))] gap-[22px]">
+          <ul className="servicios-grid">
             {servicios.map((servicio, i) => (
               <li key={servicio.id}>
                 <ServicioCard servicio={servicio} index={i} />
