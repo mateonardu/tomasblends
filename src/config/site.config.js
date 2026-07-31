@@ -355,6 +355,15 @@ export const siteConfig = {
     firma: 'Marcelo Olmos',
   },
 
+  // CTA de "dejar una reseña" entre Trabajos y Testimonios.
+  resenasGoogle: {
+    rating: '5.0',
+    cantidad: 135,
+    // TODO: reemplazar por el link real de "Escribir una reseña" del
+    // perfil de Google Business de Look & Arte.
+    link: 'https://g.page/r/PLACEHOLDER/review',
+  },
+
   // TODO: confirmar horarios reales con el cliente.
   horarios: [
     { dia: 'Lunes', abre: '', cierra: '', cerrado: true },
@@ -400,6 +409,7 @@ export const siteConfig = {
     equipo: false,
     promo: true,
     sobreNosotros: true,
+    resenasGoogle: true,
     // Look & Arte cerró sin sistema de turnos online: toda reserva se
     // coordina por WhatsApp. El wizard sigue en components/turnos/ para
     // otro cliente que sí lo quiera — solo hay que volver esto a true.

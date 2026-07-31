@@ -8,6 +8,7 @@ import Promo from './components/Promo'
 import Servicios from './components/Servicios'
 import Turnos from './components/turnos/Turnos'
 import Reels from './components/Reels'
+import ResenasGoogle from './components/ResenasGoogle'
 import Testimonios from './components/Testimonios'
 import Ubicacion from './components/Ubicacion'
 import Footer from './components/Footer'
@@ -23,6 +24,7 @@ const secciones = [
   { id: 'promo', Componente: Promo, visible: siteConfig.secciones.promo && siteConfig.promo.activa },
   { id: 'servicios', Componente: Servicios, visible: true },
   { id: 'reels', Componente: Reels, visible: siteConfig.secciones.reels },
+  { id: 'resenas-google', Componente: ResenasGoogle, visible: siteConfig.secciones.resenasGoogle },
   { id: 'turnos', Componente: Turnos, visible: siteConfig.secciones.turnos },
   { id: 'testimonios', Componente: Testimonios, visible: siteConfig.secciones.testimonios },
   { id: 'ubicacion', Componente: Ubicacion, visible: true },
