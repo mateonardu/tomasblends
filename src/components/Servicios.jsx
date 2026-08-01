@@ -36,12 +36,12 @@ function ServicioCard({ servicio, index }) {
         visible ? 'reveal-visible' : ''
       }`}
     >
-      <div className="relative h-52">
+      <div className="relative aspect-[4/5]">
         <img
           src={servicio.imagen}
           alt={servicio.nombre}
           loading="lazy"
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover object-top"
         />
         {servicio.destacado && (
           <span className="absolute top-3 left-3 rounded-full bg-primary px-3 py-1 text-[10.5px] font-bold tracking-[0.08em] text-secondary uppercase shadow-sm">

@@ -10,18 +10,19 @@ import corteHero from '../assets/corte-hero.jpg'
 
 // Fotos de las cards de servicios.
 import fotoCorte from '../assets/corte-pelo4.png'
-import fotoColor from '../assets/corte-color.png'
+import fotoColor from '../assets/corte-color.jpeg'
 import fotoBalayage from '../assets/corte-pelo-2.png'
 import fotoBabylights from '../assets/corte-pelo6.png'
 import fotoIona from '../assets/corte-pelo5.png'
-import fotoAsesoriaGeneral from '../assets/asesoria-general.jpg'
-import fotoAsesoriaImagen from '../assets/asesoria-imagen.png'
-import fotoPeinadoSocial from '../assets/corte-pelo.png'
+import fotoAsesoriaGeneral from '../assets/asesoria-general.jpeg'
+import fotoAsesoriaImagen from '../assets/asesoria-imagen.jpeg'
+import fotoPeinadoSocial from '../assets/peinado-social.jpeg'
 import fotoPeinadoRecogido from '../assets/corte-pelo-3.png'
-// TODO: no hay fotos propias de maquillaje todavía — se reutilizan fotos
-// de otras cards como placeholder. Reemplazar apenas estén disponibles.
-import fotoMaquillajeSocial from '../assets/corte-pelo4.png'
-import fotoMaquillajeEvento from '../assets/asesoria-imagen.png'
+import fotoMaquillajeSocial from '../assets/maquilla.jpeg'
+// TODO: no hay foto propia de maquillaje de evento todavía — se
+// reutiliza la de asesoría de imagen como placeholder. Reemplazar
+// apenas esté disponible.
+import fotoMaquillajeEvento from '../assets/asesoria-imagen.jpeg'
 
 import reel1 from '../assets/reels/reel-1.mp4'
 import reel2 from '../assets/reels/reel-2.mp4'
