@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { siteConfig } from '../config/site.config'
-import { formatDuracion, formatPrecio } from '../utils/format'
 import { useTurnos } from './turnos/TurnosContext'
 import { linkConsultaServicio } from '../utils/whatsapp'
 import { useReveal } from '../hooks/useReveal'
@@ -54,15 +53,6 @@ function ServicioCard({ servicio, index }) {
       <div className="flex flex-1 flex-col gap-2 p-5">
         <h3 className="font-heading text-xl font-semibold text-secondary">{servicio.nombre}</h3>
         <p className="flex-1 text-sm text-secondary/70">{servicio.descripcion}</p>
-
-        <div className="mt-1 flex items-baseline justify-between gap-3">
-          <span className="text-sm text-accent/80">
-            {formatDuracion(servicio.duracionMin)}
-          </span>
-          <span className="font-body text-lg font-bold text-accent">
-            {formatPrecio(servicio.precio)}
-          </span>
-        </div>
 
         <span className="mt-3 inline-flex w-fit items-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-secondary transition-colors group-hover:bg-primary-hover">
           {cta}
