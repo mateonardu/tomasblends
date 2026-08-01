@@ -64,7 +64,7 @@ export const siteConfig = {
 
   textos: {
     hero: {
-      eyebrow: 'Cabello y color · Asesoría de imagen · Parque Chas',
+      eyebrow: 'Cabello y color · Asesoría de imagen',
       tituloPrincipal: 'Tu mejor versión empieza',
       tituloEnfasis: 'con el corte correcto.',
       subcopy: 'Reservá tu turno por WhatsApp en Parque Chas.',

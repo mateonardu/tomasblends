@@ -23,7 +23,7 @@ export default function Hero() {
     <section
       id="inicio"
       aria-label={marca.nombre}
-      className="relative min-h-[clamp(560px,88vh,860px)] overflow-hidden bg-background"
+      className="relative min-h-[600px] overflow-hidden bg-background md:min-h-[clamp(560px,88vh,860px)]"
     >
       {/* Hero split: la imagen vive en su propia franja a la derecha, nunca
           debajo de la columna de texto. object-fit:cover en un contenedor
@@ -42,11 +42,13 @@ export default function Hero() {
         <img
           src={marca.heroImagen}
           alt=""
-          className={`h-full w-full object-cover object-[46%_20%] md:object-[48%_50%] ${ANIM_IMAGEN}`}
+          className={`h-full w-full object-cover object-[48%_10%] md:object-[48%_50%] ${ANIM_IMAGEN}`}
         />
         {/* velo sólido: en mobile la franja ocupa todo el ancho, así que hace
-            falta para que el texto siga siendo legible sobre la foto */}
-        <div className="absolute inset-0 bg-background/85 md:hidden" aria-hidden="true" />
+            falta para que el texto siga siendo legible sobre la foto.
+            Opacidad más baja que en desktop (donde no hace falta velo)
+            para que la foto se note sin perder legibilidad. */}
+        <div className="absolute inset-0 bg-background/70 md:hidden" aria-hidden="true" />
         {/* fundido suave en el borde de la franja, ya con la imagen acotada.
             Dos stops (opaco → transparente) se leían como corte duro contra
             zonas claras de la foto (la capa blanca), así que el fundido usa
@@ -65,7 +67,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[clamp(560px,88vh,860px)] max-w-[1240px] items-center px-[clamp(20px,5vw,64px)] py-[clamp(40px,7vh,84px)]">
+      <div className="relative mx-auto flex min-h-[600px] max-w-[1240px] items-center px-[clamp(20px,5vw,64px)] py-8 md:min-h-[clamp(560px,88vh,860px)] md:py-[clamp(40px,7vh,84px)]">
         <div className="flex max-w-[440px] flex-col justify-center">
           <p
             className={`mb-[18px] text-[12.5px] font-bold tracking-[0.22em] text-primary uppercase ${ANIM_0}`}
@@ -107,7 +109,11 @@ export default function Hero() {
       </div>
 
       <div
-        className={`absolute right-[clamp(20px,5vw,64px)] bottom-[clamp(88px,12vh,120px)] flex items-center gap-2 rounded-full bg-surface/90 px-4 py-[9px] text-[13px] font-semibold whitespace-nowrap text-secondary shadow-[0_6px_20px_rgba(61,50,54,.12)] backdrop-blur-sm ${ANIM_50}`}
+        // En mobile el botón flotante de WhatsApp vive fijo abajo a la
+        // derecha (BotonWhatsApp.jsx): este badge se ubica a la izquierda
+        // para no competir con él, sin depender del alto variable de la
+        // barra de promo. Desde md+ vuelve a la posición original.
+        className={`absolute bottom-24 left-4 flex items-center gap-2 rounded-full bg-surface/90 px-4 py-[9px] text-[13px] font-semibold whitespace-nowrap text-secondary shadow-[0_6px_20px_rgba(61,50,54,.12)] backdrop-blur-sm md:right-[clamp(20px,5vw,64px)] md:bottom-[clamp(88px,12vh,120px)] md:left-auto ${ANIM_50}`}
       >
         <span className="h-2 w-2 rounded-full bg-exito" />
         {hero.disponibilidad}
