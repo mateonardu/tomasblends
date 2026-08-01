@@ -13,16 +13,13 @@ import fotoCorte from '../assets/corte-pelo4.png'
 import fotoColor from '../assets/corte-color.jpeg'
 import fotoBalayage from '../assets/corte-pelo-2.png'
 import fotoBabylights from '../assets/corte-pelo6.png'
-import fotoIona from '../assets/corte-pelo5.png'
+import fotoIona from '../assets/iona.jpeg'
 import fotoAsesoriaGeneral from '../assets/asesoria-general.jpeg'
 import fotoAsesoriaImagen from '../assets/asesoria-imagen.jpeg'
 import fotoPeinadoSocial from '../assets/peinado-social.jpeg'
 import fotoPeinadoRecogido from '../assets/corte-pelo-3.png'
 import fotoMaquillajeSocial from '../assets/maquilla.jpeg'
-// TODO: no hay foto propia de maquillaje de evento todavía — se
-// reutiliza la de asesoría de imagen como placeholder. Reemplazar
-// apenas esté disponible.
-import fotoMaquillajeEvento from '../assets/asesoria-imagen.jpeg'
+import fotoMaquillajeEvento from '../assets/maquillaje-evento.jpeg'
 
 import reel1 from '../assets/reels/reel-1.mp4'
 import reel2 from '../assets/reels/reel-2.mp4'
