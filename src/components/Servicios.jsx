@@ -36,12 +36,16 @@ function ServicioCard({ servicio, index }) {
         visible ? 'reveal-visible' : ''
       }`}
     >
-      <div className="relative aspect-[4/5]">
+      <div className="relative">
+        {/* aspect-ratio en la propia img (no en el div contenedor): con
+            height:100% en un hijo, el div terminaba tomando el aspect
+            ratio real de cada foto en vez del 4/5 fijo, así que cada
+            card quedaba con un alto de imagen distinto. */}
         <img
           src={servicio.imagen}
           alt={servicio.nombre}
           loading="lazy"
-          className="h-full w-full object-cover object-top"
+          className="aspect-[4/5] w-full object-cover object-top"
         />
         {servicio.destacado && (
           <span className="absolute top-3 left-3 rounded-full bg-primary px-3 py-1 text-[10.5px] font-bold tracking-[0.08em] text-secondary uppercase shadow-sm">
