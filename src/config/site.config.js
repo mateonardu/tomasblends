@@ -364,23 +364,21 @@ export const siteConfig = {
     link: 'https://g.page/r/PLACEHOLDER/review',
   },
 
-  // TODO: confirmar horarios reales con el cliente.
   horarios: [
     { dia: 'Lunes', abre: '', cierra: '', cerrado: true },
-    { dia: 'Martes', abre: '12:00', cierra: '20:00', cerrado: false },
-    { dia: 'Miércoles', abre: '12:00', cierra: '20:00', cerrado: false },
-    { dia: 'Jueves', abre: '12:00', cierra: '20:00', cerrado: false },
-    { dia: 'Viernes', abre: '12:00', cierra: '20:00', cerrado: false },
-    { dia: 'Sábado', abre: '10:00', cierra: '18:00', cerrado: false },
+    { dia: 'Martes', abre: '09:00', cierra: '18:00', cerrado: false },
+    { dia: 'Miércoles', abre: '09:00', cierra: '18:00', cerrado: false },
+    { dia: 'Jueves', abre: '09:00', cierra: '18:00', cerrado: false },
+    { dia: 'Viernes', abre: '09:00', cierra: '18:00', cerrado: false },
+    { dia: 'Sábado', abre: '09:00', cierra: '18:00', cerrado: false },
     { dia: 'Domingo', abre: '', cierra: '', cerrado: true },
   ],
 
-  // TODO: confirmar dirección exacta con el cliente.
   ubicacion: {
-    direccion: 'Dirección a confirmar',
-    barrio: 'Parque Chas',
-    ciudad: 'CABA',
-    linkGoogleMaps: 'https://maps.google.com/?q=Parque+Chas+CABA',
+    direccion: 'Av. Triunvirato 3931',
+    barrio: '',
+    ciudad: 'Buenos Aires',
+    linkGoogleMaps: 'https://maps.google.com/?q=Av.+Triunvirato+3931+CABA',
   },
 
   // instagram y tiktok son opcionales: dejar en null si el cliente no tiene.
@@ -391,7 +389,7 @@ export const siteConfig = {
   },
 
   whatsapp: {
-    numero: '5491100000000', // sin "+", formato wa.me — PLACEHOLDER, reemplazar por el número real
+    numero: '5491160309145', // sin "+", formato wa.me
     mensajes: {
       consultaGeneral: 'Hola, quería consultar por los servicios',
       // {servicio} se interpola al tocar el CTA de una card de Servicios.

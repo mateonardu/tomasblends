@@ -72,7 +72,7 @@ export default function Ubicacion() {
             <address className="not-italic">
               <p className="text-lg font-medium">{ubicacion.direccion}</p>
               <p className="mt-1 text-sm opacity-80">
-                {ubicacion.barrio}, {ubicacion.ciudad}
+                {[ubicacion.barrio, ubicacion.ciudad].filter(Boolean).join(', ')}
               </p>
             </address>
 
