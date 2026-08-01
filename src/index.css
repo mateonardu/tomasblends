@@ -140,38 +140,23 @@ body {
 
 /* Grilla de cards de Servicios: 2 columnas en mobile y tablet (mismo
    valor, así que comparten el bloque base sin media query aparte),
-   3 columnas desde 1024px. Si la última fila queda con una sola card
-   suelta, se centra en vez de quedar pegada a la izquierda: el
-   selector nth-child detecta esa card por posición (no por cantidad
-   total, que es dinámica según la categoría elegida), así que sigue
-   funcionando sea cual sea el número de servicios. */
+   3 columnas desde 1024px. Flexbox en vez de CSS Grid: así, si la
+   última fila queda incompleta (1 o 2 cards sueltas, según la
+   cantidad de servicios de la categoría elegida) se centra sola con
+   justify-content, sin selectores nth-child por cantidad total. */
 .servicios-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 22px;
 }
 
-.servicios-grid > li:nth-child(2n + 1):last-child {
-  grid-column: 1 / -1;
+.servicios-grid > li {
   width: calc((100% - 22px) / 2);
-  margin-inline: auto;
 }
 
 @media (min-width: 1024px) {
-  .servicios-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  /* Resetea la card suelta de 2 columnas antes de aplicar la propia de 3. */
-  .servicios-grid > li:nth-child(2n + 1):last-child {
-    grid-column: auto;
-    width: auto;
-    margin-inline: 0;
-  }
-
-  .servicios-grid > li:nth-child(3n + 1):last-child {
-    grid-column: 1 / -1;
+  .servicios-grid > li {
     width: calc((100% - 2 * 22px) / 3);
-    margin-inline: auto;
   }
 }
