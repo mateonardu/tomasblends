@@ -99,10 +99,43 @@ body {
   @apply bg-background text-foreground font-body;
 }
 
-/* Tabs de categoría (Servicios): hover solo en el tab inactivo, el activo
-   ya está resaltado y no necesita feedback de hover. */
-.tab-categoria-inactiva:hover {
-  opacity: 0.7;
+/* Estado vacío de Servicios (sin categoría elegida): la flecha rebota
+   apuntando a los tiles y todo el bloque respira con un fade lento,
+   para llamar la atención sin ser ruidoso. */
+@keyframes aura-bounce-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes aura-fade-soft {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.55;
+  }
+}
+
+.servicio-empty-arrow {
+  display: inline-block;
+  animation: aura-bounce-soft 1.6s ease-in-out infinite;
+}
+
+.servicio-empty-state {
+  animation: aura-fade-soft 3.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .servicio-empty-arrow,
+  .servicio-empty-state {
+    animation: none;
+  }
 }
 
 /* Grilla de cards de Servicios: 2 columnas en mobile y tablet (mismo

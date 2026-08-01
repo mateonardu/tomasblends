@@ -33,7 +33,7 @@ function ServicioCard({ servicio, index }) {
       ref={ref}
       {...propsCta}
       style={{ transitionDelay: visible ? `${index * 100}ms` : '0ms' }}
-      className={`reveal flex h-full flex-col overflow-hidden rounded-[20px] border border-secondary/70 bg-surface shadow-[0_8px_26px_rgba(74,53,59,.08)] hover:-translate-y-[5px] hover:scale-[1.02] hover:border-primary hover:shadow-[0_18px_40px_rgba(74,53,59,.14)] ${
+      className={`reveal group flex h-full flex-col overflow-hidden rounded-2xl border border-secondary/70 bg-surface shadow-[0_10px_28px_rgba(0,0,0,.35)] hover:-translate-y-[5px] hover:scale-[1.02] hover:border-primary hover:shadow-[0_20px_46px_rgba(0,0,0,.5)] ${
         visible ? 'reveal-visible' : ''
       }`}
     >
@@ -45,7 +45,7 @@ function ServicioCard({ servicio, index }) {
           className="h-full w-full object-cover"
         />
         {servicio.destacado && (
-          <span className="absolute top-3 right-3 rounded-full bg-promo-bar px-3 py-1 text-[10.5px] font-bold tracking-[0.08em] text-promo-bar-foreground uppercase">
+          <span className="absolute top-3 left-3 rounded-full bg-primary px-3 py-1 text-[10.5px] font-bold tracking-[0.08em] text-secondary uppercase shadow-sm">
             {badgeDestacado}
           </span>
         )}
@@ -64,27 +64,46 @@ function ServicioCard({ servicio, index }) {
           </span>
         </div>
 
-        <div className="mt-2 border-t border-secondary/70 pt-3 text-sm font-bold text-accent">
+        <span className="mt-3 inline-flex w-fit items-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-secondary transition-colors group-hover:bg-primary-hover">
           {cta}
-        </div>
+        </span>
       </div>
     </a>
   )
 }
 
-function TabCategoria({ categoria, activa, onClick }) {
+function TileCategoria({ categoria, activa, onClick }) {
   return (
     <button
       type="button"
       onClick={() => onClick(categoria.id)}
       aria-pressed={activa}
-      className={`border-b-2 pb-2.5 font-body text-base transition-colors ${
+      className={`group flex flex-col gap-3 rounded-2xl px-5 py-5 text-left transition-colors duration-300 sm:px-7 sm:py-6 ${
         activa
-          ? 'border-primary font-semibold text-foreground'
-          : 'tab-categoria-inactiva border-transparent text-primary'
+          ? 'border-[1.5px] border-primary bg-primary/14'
+          : 'border border-white/10 bg-white/4 hover:border-primary/50 hover:bg-white/8'
       }`}
     >
-      {categoria.nombreCorto}
+      <span className="flex items-center justify-between gap-3">
+        <span
+          className={`font-heading text-xl font-semibold sm:text-2xl ${
+            activa ? 'text-foreground' : 'text-foreground/85'
+          }`}
+        >
+          {categoria.nombreCorto}
+        </span>
+        <span
+          aria-hidden="true"
+          className={`font-body text-lg transition-transform duration-300 group-hover:translate-x-1 ${
+            activa ? 'text-primary' : 'text-foreground/50'
+          }`}
+        >
+          →
+        </span>
+      </span>
+      <span className={`font-body text-xs ${activa ? 'text-primary' : 'text-foreground/50'}`}>
+        {activa ? 'Categoría seleccionada' : 'Tocá para ver los servicios'}
+      </span>
     </button>
   )
 }
@@ -118,9 +137,9 @@ export default function Servicios() {
           <p className="mt-2 opacity-80">{subtitulo}</p>
         </header>
 
-        <div className="mb-10 flex justify-center gap-10 border-b border-foreground/15">
+        <div className="mx-auto mb-4 grid max-w-xl grid-cols-2 gap-4 sm:gap-5">
           {siteConfig.categoriasServicios.map((cat) => (
-            <TabCategoria
+            <TileCategoria
               key={cat.id}
               categoria={cat}
               activa={tabActiva === cat.id}
@@ -138,9 +157,14 @@ export default function Servicios() {
             ))}
           </ul>
         ) : (
-          <p className="py-12 text-center font-body text-lg text-foreground/70 italic">
-            Elegí una categoría para ver los servicios
-          </p>
+          <div className="servicio-empty-state flex flex-col items-center gap-3 py-14 text-center">
+            <span aria-hidden="true" className="servicio-empty-arrow font-body text-2xl text-primary">
+              ↑
+            </span>
+            <p className="font-body text-lg text-foreground/70 italic">
+              Elegí una de las dos categorías para ver los servicios
+            </p>
+          </div>
         )}
       </div>
     </section>
