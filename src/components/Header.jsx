@@ -39,10 +39,10 @@ export default function Header() {
             : 'border-b border-transparent bg-transparent'
         }`}
       >
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+        <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6 md:h-28">
           <a href="#inicio" onClick={cerrarMenu} className="flex items-center gap-2.5">
-            <img src={marca.logo} alt="" className="h-14 w-14 object-contain" />
-            <span className="font-heading text-2xl font-bold">{marca.nombre}</span>
+            <img src={marca.logo} alt="" className="h-14 w-auto object-contain md:h-24" />
+            <span className="font-heading text-xl font-bold md:text-2xl">{marca.nombre}</span>
           </a>
 
           <nav aria-label="Principal" className="hidden items-center gap-7 font-ui md:flex">

@@ -26,7 +26,7 @@ export default function Hero() {
     <section
       id="inicio"
       aria-label={marca.nombre}
-      className="relative min-h-[600px] overflow-hidden bg-background md:min-h-[clamp(560px,88vh,860px)]"
+      className="relative min-h-[680px] overflow-hidden bg-background md:min-h-[clamp(560px,88vh,860px)]"
     >
       {/* Hero split: la imagen vive en su propia franja a la derecha, nunca
           debajo de la columna de texto. object-fit:cover en un contenedor

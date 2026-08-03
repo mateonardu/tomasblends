@@ -34,7 +34,7 @@ import reel2Poster from '../assets/reels/reel-2-poster.jpg'
 
 export const siteConfig = {
   marca: {
-    nombre: 'Look & Arte',
+    nombre: 'Look & Arte - Estilismo',
     logo,
     slogan: 'Estilo y asesoría de imagen en Parque Chas.',
     heroImagen: corteHero,
@@ -65,10 +65,10 @@ export const siteConfig = {
 
   textos: {
     hero: {
-      eyebrow: 'Cabello y color · Asesoría de imagen',
-      tituloPrincipal: 'Tu mejor versión empieza',
-      tituloEnfasis: 'con el corte correcto.',
-      subcopy: 'Reservá tu turno por WhatsApp en Parque Chas.',
+      eyebrow: 'Asesoría en imagen Personal',
+      tituloPrincipal: 'Tu mejor versión comienza con un',
+      tituloEnfasis: 'Diagnóstico personalizado.',
+      subcopy: 'Reservá tu turno por WhatsApp en Villa Urquiza.',
       ctaPrimario: 'Reservar por WhatsApp →',
       disponibilidad: 'Quedan turnos esta semana',
       ratingValor: '5,0',
@@ -171,7 +171,7 @@ export const siteConfig = {
     {
       id: 'iona',
       categoria: 'cabello',
-      nombre: 'Iona',
+      nombre: 'Coloraciones sin amoniaco de alta Calidad',
       descripcion: 'Tratamiento de coloración de última generación, cuida la fibra mientras colorea.',
       duracionMin: 0,
       precio: 0,
