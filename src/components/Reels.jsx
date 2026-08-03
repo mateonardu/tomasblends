@@ -10,11 +10,11 @@ function IconoPlay() {
   )
 }
 
-// Posiciones relativas al centro: 0 = al frente, ±1 = al costado
-// (con wraparound para que "el anterior al primero" sea el último).
+// Distancia con signo más corta al activo (con wraparound), p.ej. con
+// 6 reels: 0 = al frente, ±1 = al costado, ±2/±3 = fuera de vista.
 function offsetDesdeActivo(indice, activo, total) {
   const diff = (indice - activo + total) % total
-  return diff === total - 1 ? -1 : diff
+  return diff > total / 2 ? diff - total : diff
 }
 
 function TarjetaReel({ reel, offset, onSeleccionar }) {
@@ -45,17 +45,29 @@ function TarjetaReel({ reel, offset, onSeleccionar }) {
     }
   }
 
-  const transform =
+  const esVecino = Math.abs(offset) === 1
+  const posicion =
     offset === 0
       ? 'z-30 translate-x-0 rotate-0 scale-100'
-      : offset < 0
+      : offset === -1
         ? 'z-10 -translate-x-[68%] -rotate-[8deg] scale-[0.82]'
-        : 'z-10 translate-x-[68%] rotate-[8deg] scale-[0.82]'
+        : offset === 1
+          ? 'z-10 translate-x-[68%] rotate-[8deg] scale-[0.82]'
+          : offset < 0
+            ? 'z-0 -translate-x-[68%] -rotate-[8deg] scale-[0.82]'
+            : 'z-0 translate-x-[68%] rotate-[8deg] scale-[0.82]'
+  const visibilidad = esCentro
+    ? 'opacity-100 cursor-pointer'
+    : esVecino
+      ? 'opacity-90 cursor-pointer'
+      : 'opacity-0 pointer-events-none'
 
   return (
     <button
       type="button"
       onClick={alternarPlay}
+      aria-hidden={!esCentro && !esVecino}
+      tabIndex={!esCentro && !esVecino ? -1 : undefined}
       aria-label={
         esCentro
           ? reproduciendo
@@ -63,9 +75,7 @@ function TarjetaReel({ reel, offset, onSeleccionar }) {
             : 'Reproducir video'
           : `Ver reel de ${reel.descripcion}`
       }
-      className={`absolute inset-0 m-auto h-full w-[240px] overflow-hidden rounded-[28px] shadow-[0_20px_45px_rgba(0,0,0,.45)] transition-all duration-500 ease-out sm:w-[270px] ${transform} ${
-        esCentro ? 'cursor-pointer' : 'cursor-pointer opacity-90'
-      }`}
+      className={`absolute inset-0 m-auto h-full w-[240px] overflow-hidden rounded-[28px] shadow-[0_20px_45px_rgba(0,0,0,.45)] transition-all duration-500 ease-out sm:w-[270px] ${posicion} ${visibilidad}`}
     >
       <video
         ref={videoRef}

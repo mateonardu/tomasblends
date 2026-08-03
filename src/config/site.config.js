@@ -24,6 +24,9 @@ import fotoMaquillajeEvento from '../assets/maquillaje-evento.jpeg'
 import reel1 from '../assets/reels/reel-1.mp4'
 import reel2 from '../assets/reels/reel-2.mp4'
 import reel3 from '../assets/reels/reel-3.mp4'
+import reel4 from '../assets/reels/reel-4.mp4'
+import reel5 from '../assets/reels/reel-5.mp4'
+import reel6 from '../assets/reels/reel-6.mp4'
 // Frame fijo (no el primer cuadro, que en reel-1 y reel-2 arranca en negro)
 // para que la miniatura muestre imagen antes de reproducir.
 import reel1Poster from '../assets/reels/reel-1-poster.jpg'
@@ -265,6 +268,21 @@ export const siteConfig = {
       video: reel3,
       nombre: 'Look & Arte Estilismo',
       descripcion: 'Hay colores que llaman la atención. Y otros que transmiten personalidad.',
+    },
+    {
+      video: reel4,
+      nombre: 'Look & Arte Estilismo',
+      descripcion: 'Cada detalle suma a la imagen que querés transmitir.',
+    },
+    {
+      video: reel5,
+      nombre: 'Look & Arte Estilismo',
+      descripcion: 'La imagen personal se construye con pequeñas decisiones.',
+    },
+    {
+      video: reel6,
+      nombre: 'Look & Arte Estilismo',
+      descripcion: 'Un estilo propio que se nota a simple vista.',
     },
   ],
 
