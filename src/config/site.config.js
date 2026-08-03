@@ -443,15 +443,12 @@ export const siteConfig = {
     mensajes: [
       {
         texto: '10% OFF en tu primer corte o color, reservando por WhatsApp',
-        cupon: 'ESTILO10',
       },
       {
         texto: 'Asesoría de imagen: cupo limitado este mes',
-        cupon: 'IMAGEN15',
       },
       {
         texto: 'Reservá por WhatsApp y asegurá tu horario',
-        cupon: null,
       },
     ],
   },
