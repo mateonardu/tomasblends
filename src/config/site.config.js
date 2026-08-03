@@ -357,9 +357,7 @@ export const siteConfig = {
   resenasGoogle: {
     rating: '5.0',
     cantidad: 135,
-    // TODO: reemplazar por el link real de "Escribir una reseña" del
-    // perfil de Google Business de Look & Arte.
-    link: 'https://g.page/r/PLACEHOLDER/review',
+    link: 'https://maps.app.goo.gl/hLSoZnBNHqWJwrnN9',
   },
 
   horarios: [
