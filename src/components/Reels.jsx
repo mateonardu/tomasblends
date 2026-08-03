@@ -118,7 +118,7 @@ export default function Reels() {
   const siguiente = () => setActivo((a) => (a + 1) % reels.length)
 
   return (
-    <section id="reels" className="py-16">
+    <section id="reels" className="overflow-x-hidden py-16">
       <div className="mx-auto max-w-6xl px-6">
         <header
           ref={headerRef}
