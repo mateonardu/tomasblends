@@ -75,7 +75,7 @@ function TarjetaReel({ reel, offset, onSeleccionar }) {
             : 'Reproducir video'
           : `Ver reel de ${reel.descripcion}`
       }
-      className={`absolute inset-0 m-auto h-full w-[240px] overflow-hidden rounded-[28px] shadow-[0_20px_45px_rgba(0,0,0,.45)] transition-all duration-500 ease-out sm:w-[270px] ${posicion} ${visibilidad}`}
+      className={`absolute inset-0 m-auto h-full w-[240px] overflow-hidden rounded-[28px] shadow-[0_20px_45px_rgba(0,0,0,.45)] transition-all duration-500 ease-out sm:w-[270px] md:w-[300px] lg:w-[330px] ${posicion} ${visibilidad}`}
     >
       <video
         ref={videoRef}
@@ -124,11 +124,11 @@ export default function Reels() {
           ref={headerRef}
           className={`reveal mb-9 text-center ${headerVisible ? 'reveal-visible' : ''}`}
         >
-          <h2 className="font-heading text-3xl font-bold md:text-4xl">{titulo}</h2>
-          <p className="mt-2 text-foreground/80">{subtitulo}</p>
+          <h2 className="font-heading text-3xl font-bold md:text-4xl lg:text-5xl">{titulo}</h2>
+          <p className="mt-2 text-foreground/80 md:text-lg">{subtitulo}</p>
         </header>
 
-        <div className="relative mx-auto flex h-[420px] max-w-md items-center justify-center sm:h-[460px]">
+        <div className="relative mx-auto flex h-[420px] max-w-md items-center justify-center sm:h-[460px] md:h-[500px] md:max-w-lg lg:h-[560px] lg:max-w-xl">
           <button
             type="button"
             onClick={anterior}

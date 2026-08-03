@@ -41,7 +41,7 @@ export default function Header() {
       >
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
           <a href="#inicio" onClick={cerrarMenu} className="flex items-center gap-2.5">
-            <img src={marca.logo} alt="" className="h-12 w-12 object-contain" />
+            <img src={marca.logo} alt="" className="h-14 w-14 object-contain" />
             <span className="font-heading text-2xl font-bold">{marca.nombre}</span>
           </a>
 

@@ -18,6 +18,9 @@ export default function Hero() {
   const { marca, textos } = siteConfig
   const { hero } = textos
   const turnosActivo = siteConfig.secciones.turnos
+  // En mobile no entra el texto completo al lado de las estrellas, así que
+  // ahí solo se muestra "en Google" y el resto queda oculto hasta md.
+  const [ratingCorto, ...restoRating] = hero.ratingTexto.split(' · ')
 
   return (
     <section
@@ -102,7 +105,10 @@ export default function Hero() {
           <div className={`mt-[34px] flex items-center gap-2.5 text-[13.5px] text-foreground/60 ${ANIM_50}`}>
             <span className="text-sm tracking-[2px] text-estrellas">★★★★★</span>
             <span>
-              <strong className="text-foreground">{hero.ratingValor}</strong> {hero.ratingTexto}
+              <strong className="text-foreground">{hero.ratingValor}</strong> {ratingCorto}
+              {restoRating.length > 0 && (
+                <span className="hidden md:inline"> · {restoRating.join(' · ')}</span>
+              )}
             </span>
           </div>
         </div>
