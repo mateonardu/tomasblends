@@ -10,6 +10,18 @@ function ServicioCard({ servicio, index }) {
   const [ref, visible] = useReveal()
   const turnosActivo = siteConfig.secciones.turnos
 
+  // Con espacios normales, en mobile el CTA rompe en una palabra por
+  // linea ("Consultar" / "por" / "WhatsApp" / flecha). Uniendo
+  // "Consultar" con "por" y "WhatsApp" con la flecha con espacios
+  // irrompibles, el unico punto de quiebre posible queda entre esos
+  // dos grupos.
+  const NBSP = '\u00A0'
+  const palabrasCta = cta.split(' ')
+  const ctaConQuiebreControlado =
+    palabrasCta.length === 4
+      ? palabrasCta[0] + NBSP + palabrasCta[1] + ' ' + palabrasCta[2] + NBSP + palabrasCta[3]
+      : cta
+
   const elegir = () => {
     // Sincroniza la categoría con el servicio elegido, incluso si se
     // llegó acá sin pasar por PasoCategoria (ej. nav "Servicios" directo).
@@ -59,7 +71,7 @@ function ServicioCard({ servicio, index }) {
         <p className="flex-1 text-sm text-secondary/70">{servicio.descripcion}</p>
 
         <span className="mt-3 inline-flex w-fit items-center rounded-full bg-primary px-4 py-2 text-sm font-bold text-secondary transition-colors group-hover:bg-primary-hover">
-          {cta}
+          {ctaConQuiebreControlado}
         </span>
       </div>
     </a>
