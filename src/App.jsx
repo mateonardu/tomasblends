@@ -20,9 +20,9 @@ import BotonWhatsApp from './components/BotonWhatsApp'
  */
 const secciones = [
   { id: 'hero', Componente: Hero, visible: true },
-  { id: 'sobre-nosotros', Componente: SobreNosotros, visible: siteConfig.secciones.sobreNosotros },
   { id: 'promo', Componente: Promo, visible: siteConfig.secciones.promo && siteConfig.promo.activa },
   { id: 'servicios', Componente: Servicios, visible: true },
+  { id: 'sobre-nosotros', Componente: SobreNosotros, visible: siteConfig.secciones.sobreNosotros },
   { id: 'reels', Componente: Reels, visible: siteConfig.secciones.reels },
   { id: 'resenas-google', Componente: ResenasGoogle, visible: siteConfig.secciones.resenasGoogle },
   { id: 'turnos', Componente: Turnos, visible: siteConfig.secciones.turnos },
