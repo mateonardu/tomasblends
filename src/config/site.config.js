@@ -36,10 +36,10 @@ export const siteConfig = {
   marca: {
     nombre: 'Look & Arte - Estilismo',
     logo,
-    slogan: 'Estilo y asesoría de imagen en Parque Chas.',
+    slogan: 'Estilo y asesoría de imagen en Villa Urquiza.',
     heroImagen: corteHero,
     descripcionCorta:
-      'Peluquería de Juan en Parque Chas. Cabello, color y asesoría de imagen personal, con la técnica como base de cada trabajo.',
+      '18 años de trayectoria en Villa Urquiza. Cabello, color y asesoría de imagen personal, con la técnica como base de cada trabajo.',
   },
 
   tema: {
