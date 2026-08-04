@@ -367,7 +367,7 @@ export const siteConfig = {
   sobreNosotros: {
     titulo: 'Nuestra historia',
     texto:
-      'Hace 18 años, con Nicolás soñamos con un lugar diferente: donde no solo se hiciera el cabello, sino que se viviera una experiencia de bienestar y confianza.\n\nLook nace de mi pasión por acompañar a cada persona a descubrir su mejor versión. Arte representa la mirada creativa de Nicolás, presente en cada rincón del salón desde el primer día.\n\nHoy, después de 18 años, seguimos creyendo en lo mismo: escuchar antes que cortar, entender antes que imponer un estilo. Porque un gran cambio de imagen siempre empieza cuando una persona se siente escuchada.',
+      'Hace 18 años, con Nicolás soñamos con un lugar diferente: donde no solo hiciéramos color o cortes, sino que se viviera una experiencia de bienestar y confianza.\n\nLook nace de mi pasión por acompañar a cada persona a descubrir su mejor versión. Arte representa la mirada creativa de Nicolás, presente en cada rincón del salón desde el primer día.\n\nEscuchar antes de comenzar, entender para detectar un estilo y así comenzar a crear personalidad. Porque un gran cambio de imagen siempre empieza cuando una persona se siente escuchada.',
     firma: 'Marcelo Olmos',
   },
 
